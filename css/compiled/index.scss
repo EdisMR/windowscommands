@@ -1,0 +1,15 @@
+@import "../extra/normalize";
+@import "../extra/alertify";
+@import "../extra/alertify-default";
+
+@import "../style/colors";
+
+@media (prefers-color-sceme:dark){
+	@import "../style/colorsDark";
+}
+
+@import "../style/declarations";
+
+@media screen and (max-width:600px){
+	@import "../style/declarationsPortrait";
+}
