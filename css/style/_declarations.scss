@@ -85,6 +85,7 @@ main{
 	background-color: #444;
 	width: 100%;
 	box-sizing: border-box;
+	break-inside: avoid-column;
 }
 
 table{

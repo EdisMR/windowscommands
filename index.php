@@ -46,40 +46,40 @@ require_once "php/main.php";
 			<table>
 				<thead>
 					<tr>
-						<td colspan="2">Atajos universales (funcionan siempre)</td>
+						<td colspan="2"><?php print $translation["t02"]; ?></td>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td class="table-info-command">Impr Pant</td>
-						<td>Copia al portapapeles una captura de la pantalla completa</td>
+						<td><?php print $translation["t03"]; ?></td>
 					</tr>
 					<tr>
 						<td>Alt+Tab</td>
-						<td>Seleccionar entre ventanas abiertas</td>
+						<td><?php print $translation["t04"]; ?></td>
 					</tr>
 					<tr>
 						<td>Ctrl+Alt+Tab</td>
-						<td>Miniatura de ventanas abiertas</td>
+						<td><?php print $translation["t05"]; ?></td>
 					</tr>
 					<tr>
 						<td>Ctrl+Tab</td>
-						<td>Alternar pestañas de ventana activa</td>
+						<td><?php print $translation["t06"]; ?></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+.</td>
-						<td>Insertar emoticones</td>
+						<td><?php print $translation["t07"]; ?></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+A</td>
-						<td>Panel de notificaciones</td>
+						<td><?php print $translation["t08"]; ?></td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+Abajo</td>
+						<td><span class="win-icon"></span>+&#x2193;</td>
 						<td>Minimizar ventana/tamaño de ventana</td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+Arriba</td>
+						<td><span class="win-icon"></span>+&#x2191;</td>
 						<td>Maximizar ventana activa</td>
 					</tr>
 					<tr>
@@ -91,7 +91,7 @@ require_once "php/main.php";
 						<td>Ver escritorio</td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+Derecha</td>
+						<td><span class="win-icon"></span>+&#x2192;</td>
 						<td>Ventana ocupa lado derecho</td>
 					</tr>
 					<tr>
@@ -99,7 +99,7 @@ require_once "php/main.php";
 						<td>Abrir explorador de archivos</td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+Espacio</td>
+						<td><span class="win-icon"></span>+[space]</td>
 						<td>Seleccionar idioma entre configurados</td>
 					</tr>
 					<tr>
@@ -111,7 +111,7 @@ require_once "php/main.php";
 						<td>Abrir configuraciones</td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+Izquierda</td>
+						<td><span class="win-icon"></span>+&#x2190;</td>
 						<td>Ventana ocupa lado izquierdo</td>
 					</tr>
 					<tr>
@@ -192,15 +192,15 @@ require_once "php/main.php";
 
 				<tbody>
 					<tr>
-						<td>Alt+Arriba</td>
+						<td>Alt+&#x2191;</td>
 						<td>Subir un nivel en la jerarquía del orden de las carpetas</td>
 					</tr>
 					<tr>
-						<td>Alt+Derecha/Alt+izquierda</td>
+						<td>Alt+&#x2192;/Alt+&#x2190;</td>
 						<td>Atrás o adelante en la historia de visitados</td>
 					</tr>
 					<tr>
-						<td>Alt+DobleClic</td>
+						<td>Alt+DoubleClick</td>
 						<td>Ver propiedades del archivo</td>
 					</tr>
 					<tr>
@@ -208,7 +208,7 @@ require_once "php/main.php";
 						<td>Propiedades del archivo seleccionado</td>
 					</tr>
 					<tr>
-						<td>Borrar (Del)</td>
+						<td>Delete (Del)</td>
 						<td>Ir atrás</td>
 					</tr>
 					<tr>
