@@ -44,12 +44,18 @@ $translation=[
 	"t41"=>"Search in the actual folder and subfolders",
 	"t42"=>"Type the adress in the top bar",
 	"t43"=>"Navigate between the program sections",
-	"t44"=>"",
-	"t45"=>"",
+	"t44"=>"Copying a file",
+	"t45"=>"Create a shortcut",
 	"t46"=>"",
 	"t47"=>"",
 	"t48"=>"",
-	"t49"=>""
+	"t49"=>"",
+
+
+
+	"tfooter1"=>"Developed by ",
+	"tfooter2"=>"Go to ",
+	"tfooter3"=>"Project repository"
 ];
 
 ?>

@@ -198,11 +198,11 @@ require_once "php/main.php";
 						<td><?php print $translation["t35"];?></td>
 					</tr>
 					<tr>
-						<td>Copiando un archivo</td>
+						<td><?php print $translation["t44"];?></td>
 						<td><?php print $translation["t36"];?></td>
 					</tr>
 					<tr>
-						<td>Crear acceso directo</td>
+						<td><?php print $translation["t45"];?></td>
 						<td><?php print $translation["t37"];?></td>
 					</tr>
 					<tr>
@@ -237,8 +237,8 @@ require_once "php/main.php";
 	</main>
 
 	<footer>
-		<p>Desarrollado por <a href="https://github.com/XitusDev" target="_blank" rel="noopener noreferrer">XitusDev</a> &copy;2021</p>
-		<p>Ir al <a href="http://" target="_blank" rel="noopener noreferrer">Respositorio del proyecto</a></p>
+		<p><?php print $translation["tfooter1"];?><a href="https://github.com/XitusDev" target="_blank" rel="noopener noreferrer">XitusDev</a> &copy;2021</p>
+		<p><?php print $translation["tfooter2"];?><a href="http://" target="_blank" rel="noopener noreferrer"><?php print $translation["tfooter3"];?></a></p>
 	</footer>
 </body>
 

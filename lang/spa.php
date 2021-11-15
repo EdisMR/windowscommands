@@ -44,12 +44,17 @@ $translation=[
 	"t41"=>"Buscar en la carpeta actual y en las subcarpetas",
 	"t42"=>"Ingresar dirección en la barra superior",
 	"t43"=>"Navegar entre secciones del programa",
-	"t44"=>"",
-	"t45"=>"",
+	"t44"=>"Copiando un archivo",
+	"t45"=>"Crear acceso directo",
 	"t46"=>"",
 	"t47"=>"",
 	"t48"=>"",
-	"t49"=>""
+	"t49"=>"",
+
+
+	"tfooter1"=>"Desarrollado por ",
+	"tfooter2"=>"Ir al ",
+	"tfooter3"=>"Respositorio del proyecto"
 ];
 
 ?>
