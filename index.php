@@ -3,7 +3,7 @@ require_once "php/main.php";
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang=<?php print $translation["t00"];?>>
 
 <head>
 	<meta charset="UTF-8">
@@ -67,6 +67,22 @@ require_once "php/main.php";
 						<td><?php print $translation["t06"]; ?></td>
 					</tr>
 					<tr>
+						<td><span class="win-icon"></span>+&#x2191;</td>
+						<td><?php print $translation["t10"]; ?></td>
+					</tr>
+					<tr>
+						<td><span class="win-icon"></span>+&#x2193;</td>
+						<td><?php print $translation["t09"]; ?></td>
+					</tr>
+					<tr>
+						<td><span class="win-icon"></span>+&#x2192;</td>
+						<td><?php print $translation["t13"]; ?></td>
+					</tr>
+					<tr>
+						<td><span class="win-icon"></span>+&#x2190;</td>
+						<td><?php print $translation["t18"]; ?></td>
+					</tr>
+					<tr>
 						<td><span class="win-icon"></span>+.</td>
 						<td><?php print $translation["t07"]; ?></td>
 					</tr>
@@ -74,107 +90,77 @@ require_once "php/main.php";
 						<td><span class="win-icon"></span>+A</td>
 						<td><?php print $translation["t08"]; ?></td>
 					</tr>
-					<tr>
-						<td><span class="win-icon"></span>+&#x2193;</td>
-						<td>Minimizar ventana/tamaño de ventana</td>
-					</tr>
-					<tr>
-						<td><span class="win-icon"></span>+&#x2191;</td>
-						<td>Maximizar ventana activa</td>
-					</tr>
+
 					<tr>
 						<td><span class="win-icon"></span>+B</td>
-						<td>Lado izquierdo de barra de tareas</td>
+						<td><?php print $translation["t11"]; ?></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+D</td>
-						<td>Ver escritorio</td>
+						<td><?php print $translation["t12"]; ?></td>
 					</tr>
-					<tr>
-						<td><span class="win-icon"></span>+&#x2192;</td>
-						<td>Ventana ocupa lado derecho</td>
-					</tr>
+
 					<tr>
 						<td><span class="win-icon"></span>+E</td>
-						<td>Abrir explorador de archivos</td>
+						<td><?php print $translation["t14"]; ?></td>
 					</tr>
-					<tr>
-						<td><span class="win-icon"></span>+[space]</td>
-						<td>Seleccionar idioma entre configurados</td>
-					</tr>
+
 					<tr>
 						<td><span class="win-icon"></span>+F</td>
-						<td>Abrir herramienta para buscar</td>
+						<td><?php print $translation["t16"]; ?></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+I</td>
-						<td>Abrir configuraciones</td>
+						<td><?php print $translation["t17"]; ?></td>
 					</tr>
-					<tr>
-						<td><span class="win-icon"></span>+&#x2190;</td>
-						<td>Ventana ocupa lado izquierdo</td>
-					</tr>
+
 					<tr>
 						<td><span class="win-icon"></span>+K</td>
-						<td>Abrir “Conectar”</td>
+						<td><?php print $translation["t19"]; ?></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+L</td>
-						<td>Bloquear equipo</td>
+						<td><?php print $translation["t20"]; ?></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+M</td>
-						<td>
-							Minimizar todas las ventanas
-						</td>
+						<td><?php print $translation["t21"]; ?></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+P</td>
-						<td>
-							Proyectar ventana a otros dispositivos
-						</td>
+						<td><?php print $translation["t22"]; ?></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+R</td>
-						<td>
-							Abrir “Ejecutar”
-						</td>
+						<td><?php print $translation["t23"]; ?></td>
+					</tr>
+					<tr>
+						<td><span class="win-icon"></span>+[space]</td>
+						<td><?php print $translation["t15"]; ?></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+T</td>
-						<td>
-							Lado derecho de barra de tareas
-						</td>
+						<td><?php print $translation["t24"]; ?></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+Tab</td>
-						<td>
-							Navegar entre escritorios
-						</td>
+						<td><?php print $translation["t25"]; ?></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+W</td>
-						<td>
-							Área de Windows Inkspace
-						</td>
+						<td><?php print $translation["t26"]; ?></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+X</td>
-						<td>
-							Abrir menú sobre el botón de inicio
-						</td>
+						<td><?php print $translation["t27"]; ?></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+Mayus+S</td>
-						<td>
-							Capturar zona de la pantalla
-						</td>
+						<td><?php print $translation["t28"]; ?></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+Impr Pant</td>
-						<td>
-							Guardar captura de pantalla completa
-						</td>
+						<td><?php print $translation["t29"]; ?></td>
 					</tr>
 
 				</tbody>
@@ -186,62 +172,62 @@ require_once "php/main.php";
 			<table>
 				<thead>
 					<tr>
-						<td colspan="2">En el explorador de archivos</td>
+						<td colspan="2"><?php print $translation["t30"];?></td>
 					</tr>
 				</thead>
 
 				<tbody>
 					<tr>
 						<td>Alt+&#x2191;</td>
-						<td>Subir un nivel en la jerarquía del orden de las carpetas</td>
+						<td><?php print $translation["t31"];?></td>
 					</tr>
 					<tr>
 						<td>Alt+&#x2192;/Alt+&#x2190;</td>
-						<td>Atrás o adelante en la historia de visitados</td>
+						<td><?php print $translation["t32"];?></td>
 					</tr>
 					<tr>
 						<td>Alt+DoubleClick</td>
-						<td>Ver propiedades del archivo</td>
+						<td><?php print $translation["t33"];?></td>
 					</tr>
 					<tr>
 						<td>Alt+Enter </td>
-						<td>Propiedades del archivo seleccionado</td>
+						<td><?php print $translation["t34"];?></td>
 					</tr>
 					<tr>
 						<td>Delete (Del)</td>
-						<td>Ir atrás</td>
+						<td><?php print $translation["t35"];?></td>
 					</tr>
 					<tr>
 						<td>Copiando un archivo</td>
-						<td> mantener presionado CTRL mientras se arrastra el archivo a otra carpeta</td>
+						<td><?php print $translation["t36"];?></td>
 					</tr>
 					<tr>
 						<td>Crear acceso directo</td>
-						<td>CTR+MAYUS presionado mientras se arrastra hacia el destino</td>
+						<td><?php print $translation["t37"];?></td>
 					</tr>
 					<tr>
 						<td>Ctrl+E</td>
-						<td>Seleccionar todo</td>
+						<td><?php print $translation["t38"];?></td>
 					</tr>
 					<tr>
 						<td>Ctrl+Shift+N</td>
-						<td>Crear nueva carpeta</td>
+						<td><?php print $translation["t39"];?></td>
 					</tr>
 					<tr>
 						<td>F2</td>
-						<td>Renombrar archivo seleccionado</td>
+						<td><?php print $translation["t40"];?></td>
 					</tr>
 					<tr>
 						<td>F3</td>
-						<td>Buscar en la carpeta actual y en las subcarpetas</td>
+						<td><?php print $translation["t41"];?></td>
 					</tr>
 					<tr>
 						<td>F4/Alt+D</td>
-						<td>Ingresar dirección en la barra superior</td>
+						<td><?php print $translation["t42"];?></td>
 					</tr>
 					<tr>
 						<td>Shift / Alt Shift</td>
-						<td>Navegar entre secciones del programa</td>
+						<td><?php print $translation["t43"];?></td>
 					</tr>
 				</tbody>
 			</table>
