@@ -4,15 +4,15 @@ $translation=[
 	"t01"=>"Windows Commands",
 	"t02"=>"Universal shortcuts (ever works)",
 	"t03"=>"Copy to the clipboard a complete screenshot",
-	"t04"=>"Choose between the open windows",
-	"t05"=>"Program thumbnails to choose an open program",
-	"t06"=>"Alternate between the program tabs",
+	"t04"=>"Navigate between the open windows",
+	"t05"=>"Navigate between the program thumbnails to go to an open program",
+	"t06"=>"Alternate between the program tabs (in a program with tabs)",
 	"t07"=>"Insert an emoji",
 	"t08"=>"Notifications panel",
-	"t09"=>"Minimize window / Window size",
+	"t09"=>"Minimize window / reduce the Window size",
 	"t10"=>"Maximize active window",
-	"t11"=>"Left side in the task bar",/*  */
-	"t12"=>"See the Desktop",
+	"t11"=>"Go to the left side in the task bar",/*  */
+	"t12"=>"Go to the Desktop",
 	"t13"=>"Window in the right",/*  */
 	"t14"=>"Open the file explorer",
 	"t15"=>"Choose a language from the setted languages",/*  */
@@ -46,10 +46,17 @@ $translation=[
 	"t43"=>"Navigate between the program sections",
 	"t44"=>"Copying a file",
 	"t45"=>"Create a shortcut",
-	"t46"=>"",
-	"t47"=>"",
-	"t48"=>"",
-	"t49"=>"",
+
+
+	"t46"=>"In any open program",
+	"t47"=>"Menu bar (options in the top)",
+	"t48"=>"Open the window menu to minimize, close or maximize the current window",
+	"t49"=>"Close the program inmediately",
+	"t50"=>"Underlined letter",
+	"t51"=>"Choose the underlined letter",
+	"t52"=>"Close the window or current file in a multiwindow program",
+	"t53"=>"Cursor to the start in the current word",
+	"t54"=>"Select the underlined option",
 
 
 

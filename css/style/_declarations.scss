@@ -82,10 +82,15 @@ main{
 
 .table-container{
 	padding: 20px;
-	background-color: #444;
+	background-color: rgba($color: black, $alpha: .1);
 	width: 100%;
 	box-sizing: border-box;
 	break-inside: avoid-column;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	&:first-of-type{
+		margin-top: 0px;
+	}
 }
 
 table{
@@ -115,4 +120,125 @@ footer{
 		text-align: center;
 		margin: 5px;
 	}
+}
+
+/* ***** */
+/* MENU */
+/* ***** */
+
+$menu-padding:30px;
+
+#menu-priorization{
+	background-color: rgba($color: black, $alpha: .4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	display: grid;
+	place-items: center;
+}
+
+.menu-container{
+	min-width: 300px;
+	background-color: #414141;
+	color: #eee;
+}
+
+.menu-title{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 70px;
+	background-color: var(--primary);
+	padding: $menu-padding;
+	box-sizing: border-box;
+}
+
+.menu-title-text{
+	font-size: 30px;
+}
+
+.menu-close{
+
+}
+
+#menu-close-btn{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 30px;
+	height: 30px;
+	font-size: 30px;
+	color: white;
+	background-color: rgb(196, 41, 41);
+	span{
+		transform: translateY(-4px);
+	}
+	&:hover{
+		background-color: rgb(196, 41, 41);
+	}
+	&:active{
+		background-color: rgb(196, 41, 41);
+		span{
+			transform: translateY(-3px);
+		}
+	}
+}
+
+.menu-share-options{
+	padding: $menu-padding;
+	box-sizing: border-box;
+	display: block;
+	margin: 0;
+}
+
+.share-item{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.share-ico{
+
+}
+
+.share-text{
+	
+}
+
+.settings-options{
+	padding: $menu-padding;
+	box-sizing: border-box;
+	display: block;
+	margin: 0;
+}
+
+.settings{
+	display: grid;
+	grid-template-columns: 30px 1fr 50px 70px 50px;
+	grid-auto-rows: 50px;
+	align-items: center;
+}
+
+.language-options{
+	padding: $menu-padding;
+	box-sizing: border-box;
+	display: block;
+	margin: 0;
+}
+
+.language-title{
+
+}
+
+.language-items{
+	display: grid;
+	grid-template-columns: 100px 1fr 20px;
+}
+
+.lang-title{
+	
 }

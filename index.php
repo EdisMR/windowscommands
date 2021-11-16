@@ -8,11 +8,7 @@ require_once "php/main.php";
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-	<title>
-		<?php
-		print $translation["t01"];
-		?>
-	</title>
+	<title><?php print $translation["t01"];?></title>
 
 	<link rel="shortcut icon" href="assets/icons/windows.ico" type="image/x-icon">
 	<link rel="stylesheet" href="css/compiled/index.css">
@@ -233,8 +229,125 @@ require_once "php/main.php";
 			</table>
 		</div>
 
+		<div class="table-container">
+			<table>
+				<thead>
+					<tr>
+						<td colspan="2"><?php print $translation["t46"];?></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Alt</td>
+						<td><?php print $translation["t47"];?></td>
+					</tr>
+					<tr>
+						<td>Alt+[Space]</td>
+						<td><?php print $translation["t48"];?></td>
+					</tr>
+					<tr>
+						<td>Alt+F4</td>
+						<td><?php print $translation["t49"];?></td>
+					</tr>
+					<tr>
+						<td>Alt+<?php print $translation["t50"];?></td>
+						<td><?php print $translation["t51"];?></td>
+					</tr>
+					<tr>
+						<td>Ctrl+F4</td>
+						<td><?php print $translation["t52"];?></td>
+					</tr>
+					<tr>
+						<td>Ctrl+&#x2192; / Ctrl+&#x2190;</td>
+						<td><?php print $translation["t53"];?></td>
+					</tr>
+					<tr>
+						<td>F10+<?php print $translation["t50"];?></td>
+						<td><?php print $translation["t54"];?></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
 
 	</main>
+
+
+
+	<section id="menu-priorization">
+
+		<section class="menu-container">
+			<div class="menu-title">
+				<div class="menu-title-text">Menu</div>
+				<div class="menu-close">
+					<button id="menu-close-btn"><span>&#xd7;</span></button>
+				</div>
+			</div>
+
+			<div class="menu-share-options">
+				<article class="share-item">
+					<div class="share-ico">algo</div>
+					<div class="share-text">Share text</div>
+				</article>
+				<article class="share-item">
+					<div class="share-ico">algo</div>
+					<div class="share-text">Download pdf</div>
+				</article>
+				<article class="share-item">
+					<div class="share-ico">algo</div>
+					<div class="share-text">Contribute</div>
+				</article>
+			</div>
+
+			<div class="settings-options">
+				<article class="settings">
+					
+				
+					<div>algo</div>
+					<div>Dark theme</div>
+					<div>Off</div>
+					<div>algo</div>
+					<div>On</div>
+					
+				
+					<div>algo</div>
+					<div>Big font</div>
+					<div>Off</div>
+					<div>algo</div>
+					<div>On</div>
+					
+				
+					<div>algo</div>
+					<div>High contrast</div>
+					<div>Off</div>
+					<div>algo</div>
+					<div>On</div>
+				</article>
+			</div>
+
+			<div class="language-options">
+				<div class="language-title">
+					<span>Language</span>
+				</div>
+				<div class="language-items">
+
+					<div class="flag">algo</div>
+					<div class="lang-title">English</div>
+					<div><span class="lang-option">algo</span></div>
+
+					
+					<div class="flag">algo</div>
+					<div class="lang-title">Spanish</div>
+					<div><span class="lang-option">algo</span></div>
+
+
+				</div>
+			</div>
+		</section>
+
+	</section>
+
+
 
 	<footer>
 		<p><?php print $translation["tfooter1"];?><a href="https://github.com/XitusDev" target="_blank" rel="noopener noreferrer">XitusDev</a> &copy;2021</p>
