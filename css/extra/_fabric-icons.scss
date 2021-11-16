@@ -1,0 +1,47 @@
+/*
+  Your use of the content in the files referenced here is subject to the terms of the license at https://aka.ms/fabric-assets-license
+*/
+@font-face {
+  font-family: 'FabricMDL2Icons';
+  src: url('../extra/fabric-icons-263707fa.woff') format('woff');
+}
+
+.ms-Icon {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-family: 'FabricMDL2Icons';
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+}
+
+// Mixins
+@mixin ms-Icon--BackToWindow { content: "\E73F"; }
+@mixin ms-Icon--BoxMultiplySolid { content: "\F2D5"; }
+@mixin ms-Icon--Cancel { content: "\E711"; }
+@mixin ms-Icon--ContextMenu { content: "\F37C"; }
+@mixin ms-Icon--Contrast { content: "\E7A1"; }
+@mixin ms-Icon--DownloadDocument { content: "\F549"; }
+@mixin ms-Icon--FontSize { content: "\E8E9"; }
+@mixin ms-Icon--LocaleLanguage { content: "\F2B7"; }
+@mixin ms-Icon--Money { content: "\EAFD"; }
+@mixin ms-Icon--RedEye12 { content: "\E3AD"; }
+@mixin ms-Icon--Share { content: "\E72D"; }
+@mixin ms-Icon--WindowsLogo { content: "\E782"; }
+
+
+// Classes
+.ms-Icon--BackToWindow:before { @include ms-Icon--BackToWindow }
+.ms-Icon--BoxMultiplySolid:before { @include ms-Icon--BoxMultiplySolid }
+.ms-Icon--Cancel:before { @include ms-Icon--Cancel }
+.ms-Icon--ContextMenu:before { @include ms-Icon--ContextMenu }
+.ms-Icon--Contrast:before { @include ms-Icon--Contrast }
+.ms-Icon--DownloadDocument:before { @include ms-Icon--DownloadDocument }
+.ms-Icon--FontSize:before { @include ms-Icon--FontSize }
+.ms-Icon--LocaleLanguage:before { @include ms-Icon--LocaleLanguage }
+.ms-Icon--Money:before { @include ms-Icon--Money }
+.ms-Icon--RedEye12:before { @include ms-Icon--RedEye12 }
+.ms-Icon--Share:before { @include ms-Icon--Share }
+.ms-Icon--WindowsLogo:before { @include ms-Icon--WindowsLogo }
+

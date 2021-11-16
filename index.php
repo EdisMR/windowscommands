@@ -1,21 +1,16 @@
-<?php
-require_once "php/main.php";
-?>
-
 <!DOCTYPE html>
-<html lang=<?php print $translation["t00"];?>>
+<html>
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-	<title><?php print $translation["t01"];?></title>
+	<title data-text="t01"></title>
 
 	<link rel="shortcut icon" href="assets/icons/windows.ico" type="image/x-icon">
 	<link rel="stylesheet" href="css/compiled/index.css">
 	<script src="script/alertify.js"></script>
 	<script src="script/anime-3.2.1.min.js"></script>
 	<script defer src="script/index.js"></script>
-
 </head>
 
 <body>
@@ -26,7 +21,7 @@ require_once "php/main.php";
 			</figure>
 
 			<h1>
-				<?php print $translation["t01"]; ?>
+				<span data-text="t01">
 			</h1>
 		</div>
 		<div class="header-menu">
@@ -42,121 +37,121 @@ require_once "php/main.php";
 			<table>
 				<thead>
 					<tr>
-						<td colspan="2"><?php print $translation["t02"]; ?></td>
+						<td colspan="2"><span data-text="t02"></td>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td class="table-info-command">Impr Pant</td>
-						<td><?php print $translation["t03"]; ?></td>
+						<td><span data-text="t03"></td>
 					</tr>
 					<tr>
 						<td>Alt+Tab</td>
-						<td><?php print $translation["t04"]; ?></td>
+						<td><span data-text="t04"></td>
 					</tr>
 					<tr>
 						<td>Ctrl+Alt+Tab</td>
-						<td><?php print $translation["t05"]; ?></td>
+						<td><span data-text="t05"></td>
 					</tr>
 					<tr>
 						<td>Ctrl+Tab</td>
-						<td><?php print $translation["t06"]; ?></td>
+						<td><span data-text="t06"></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+&#x2191;</td>
-						<td><?php print $translation["t10"]; ?></td>
+						<td><span data-text="t10"></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+&#x2193;</td>
-						<td><?php print $translation["t09"]; ?></td>
+						<td><span data-text="t09"></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+&#x2192;</td>
-						<td><?php print $translation["t13"]; ?></td>
+						<td><span data-text="t13"></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+&#x2190;</td>
-						<td><?php print $translation["t18"]; ?></td>
+						<td><span data-text="t18"></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+.</td>
-						<td><?php print $translation["t07"]; ?></td>
+						<td><span data-text="t07"></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+A</td>
-						<td><?php print $translation["t08"]; ?></td>
+						<td><span data-text="t08"></td>
 					</tr>
 
 					<tr>
 						<td><span class="win-icon"></span>+B</td>
-						<td><?php print $translation["t11"]; ?></td>
+						<td><span data-text="t11"></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+D</td>
-						<td><?php print $translation["t12"]; ?></td>
+						<td><span data-text="t12"></td>
 					</tr>
 
 					<tr>
 						<td><span class="win-icon"></span>+E</td>
-						<td><?php print $translation["t14"]; ?></td>
+						<td><span data-text="t14"></td>
 					</tr>
 
 					<tr>
 						<td><span class="win-icon"></span>+F</td>
-						<td><?php print $translation["t16"]; ?></td>
+						<td><span data-text="t16"></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+I</td>
-						<td><?php print $translation["t17"]; ?></td>
+						<td><span data-text="t17"></td>
 					</tr>
 
 					<tr>
 						<td><span class="win-icon"></span>+K</td>
-						<td><?php print $translation["t19"]; ?></td>
+						<td><span data-text="t19"></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+L</td>
-						<td><?php print $translation["t20"]; ?></td>
+						<td><span data-text="t20"></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+M</td>
-						<td><?php print $translation["t21"]; ?></td>
+						<td><span data-text="t21"></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+P</td>
-						<td><?php print $translation["t22"]; ?></td>
+						<td><span data-text="t22"></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+R</td>
-						<td><?php print $translation["t23"]; ?></td>
+						<td><span data-text="t23"></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+[space]</td>
-						<td><?php print $translation["t15"]; ?></td>
+						<td><span data-text="t15"></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+T</td>
-						<td><?php print $translation["t24"]; ?></td>
+						<td><span data-text="t24"></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+Tab</td>
-						<td><?php print $translation["t25"]; ?></td>
+						<td><span data-text="t25"></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+W</td>
-						<td><?php print $translation["t26"]; ?></td>
+						<td><span data-text="t26"></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+X</td>
-						<td><?php print $translation["t27"]; ?></td>
+						<td><span data-text="t27"></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+Mayus+S</td>
-						<td><?php print $translation["t28"]; ?></td>
+						<td><span data-text="t28"></td>
 					</tr>
 					<tr>
 						<td><span class="win-icon"></span>+Impr Pant</td>
-						<td><?php print $translation["t29"]; ?></td>
+						<td><span data-text="t29"></td>
 					</tr>
 
 				</tbody>
@@ -168,62 +163,62 @@ require_once "php/main.php";
 			<table>
 				<thead>
 					<tr>
-						<td colspan="2"><?php print $translation["t30"];?></td>
+						<td colspan="2"><span data-text="t30"></span></td>
 					</tr>
 				</thead>
 
 				<tbody>
 					<tr>
 						<td>Alt+&#x2191;</td>
-						<td><?php print $translation["t31"];?></td>
+						<td><span data-text="t31"></span></td>
 					</tr>
 					<tr>
 						<td>Alt+&#x2192;/Alt+&#x2190;</td>
-						<td><?php print $translation["t32"];?></td>
+						<td><span data-text="t32"></span></td>
 					</tr>
 					<tr>
 						<td>Alt+DoubleClick</td>
-						<td><?php print $translation["t33"];?></td>
+						<td><span data-text="t33"></span></td>
 					</tr>
 					<tr>
 						<td>Alt+Enter </td>
-						<td><?php print $translation["t34"];?></td>
+						<td><span data-text="t34"></span></td>
 					</tr>
 					<tr>
 						<td>Delete (Del)</td>
-						<td><?php print $translation["t35"];?></td>
+						<td><span data-text="t35"></span></td>
 					</tr>
 					<tr>
-						<td><?php print $translation["t44"];?></td>
-						<td><?php print $translation["t36"];?></td>
+						<td><span data-text="t44"></span></td>
+						<td><span data-text="t36"></span></td>
 					</tr>
 					<tr>
-						<td><?php print $translation["t45"];?></td>
-						<td><?php print $translation["t37"];?></td>
+						<td><span data-text="t45"></span></td>
+						<td><span data-text="t37"></span></td>
 					</tr>
 					<tr>
 						<td>Ctrl+E</td>
-						<td><?php print $translation["t38"];?></td>
+						<td><span data-text="t38"></span></td>
 					</tr>
 					<tr>
 						<td>Ctrl+Shift+N</td>
-						<td><?php print $translation["t39"];?></td>
+						<td><span data-text="t39"></span></td>
 					</tr>
 					<tr>
 						<td>F2</td>
-						<td><?php print $translation["t40"];?></td>
+						<td><span data-text="t40"></span></td>
 					</tr>
 					<tr>
 						<td>F3</td>
-						<td><?php print $translation["t41"];?></td>
+						<td><span data-text="t41"></span></td>
 					</tr>
 					<tr>
 						<td>F4/Alt+D</td>
-						<td><?php print $translation["t42"];?></td>
+						<td><span data-text="t42"></span></td>
 					</tr>
 					<tr>
 						<td>Shift / Alt Shift</td>
-						<td><?php print $translation["t43"];?></td>
+						<td><span data-text="t43"></span></td>
 					</tr>
 				</tbody>
 			</table>
@@ -233,37 +228,93 @@ require_once "php/main.php";
 			<table>
 				<thead>
 					<tr>
-						<td colspan="2"><?php print $translation["t46"];?></td>
+						<td colspan="2"><span data-text="t46"></span></td>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>Alt</td>
-						<td><?php print $translation["t47"];?></td>
+						<td><span data-text="t47"></span></td>
 					</tr>
 					<tr>
 						<td>Alt+[Space]</td>
-						<td><?php print $translation["t48"];?></td>
+						<td><span data-text="t48"></span></td>
 					</tr>
 					<tr>
 						<td>Alt+F4</td>
-						<td><?php print $translation["t49"];?></td>
+						<td><span data-text="t49"></span></td>
 					</tr>
 					<tr>
-						<td>Alt+<?php print $translation["t50"];?></td>
-						<td><?php print $translation["t51"];?></td>
+						<td>Alt+<span data-text="t50"></span></td>
+						<td><span data-text="t51"></span></td>
 					</tr>
 					<tr>
 						<td>Ctrl+F4</td>
-						<td><?php print $translation["t52"];?></td>
+						<td><span data-text="t52"></span></td>
 					</tr>
 					<tr>
 						<td>Ctrl+&#x2192; / Ctrl+&#x2190;</td>
-						<td><?php print $translation["t53"];?></td>
+						<td><span data-text="t53"></span></td>
 					</tr>
 					<tr>
-						<td>F10+<?php print $translation["t50"];?></td>
-						<td><?php print $translation["t54"];?></td>
+						<td>F10+<span data-text="t50"></span></td>
+						<td><span data-text="t54"></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="table-container">
+			<table>
+				<thead>
+					<tr>
+						<td colspan="2"><span data-text="t55"></span></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Ctrl+I</td>
+						<td><span data-text="t56"></span></td>
+					</tr>
+					<tr>
+						<td>Ctrl+U</td>
+						<td><span data-text="t57"></span></td>
+					</tr>
+					<tr>
+						<td>F11</td>
+						<td><span data-text="t58"></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="table-container">
+			<table>
+				<thead>
+					<tr>
+						<td colspan="2"><span data-text="t59"></span></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Alt+<span data-text="t50"></td>
+						<td><span data-text="t60"></span></td>
+					</tr>
+					<tr>
+						<td>Intro</td>
+						<td><span data-text="t61"></span></td>
+					</tr>
+					<tr>
+						<td>Esc</td>
+						<td><span data-text="t62"></span></td>
+					</tr>
+					<tr>
+						<td>Mayus+Tab</td>
+						<td><span data-text="t63"></span></td>
+					</tr>
+					<tr>
+						<td>Tab</td>
+						<td><span data-text="t64"></span></td>
 					</tr>
 				</tbody>
 			</table>
@@ -286,15 +337,15 @@ require_once "php/main.php";
 
 			<div class="menu-share-options">
 				<article class="share-item">
-					<div class="share-ico">algo</div>
+					<div class="share-ico"><span class="ms-Icon ms-Icon--Share"></span></div>
 					<div class="share-text" id="share-text-element">Share text</div>
 				</article>
 				<article class="share-item">
-					<div class="share-ico">algo</div>
+					<div class="share-ico"><span class="ms-Icon ms-Icon--DownloadDocument"></span></div>
 					<div class="share-text">Download pdf</div>
 				</article>
 				<article class="share-item">
-					<div class="share-ico">algo</div>
+					<div class="share-ico"><span class="ms-Icon ms-Icon--Money"></span></div>
 					<div class="share-text">Contribute</div>
 				</article>
 			</div>
@@ -304,30 +355,30 @@ require_once "php/main.php";
 					
 				
 					<div>algo</div>
-					<div>Dark theme</div>
-					<div>Off</div>
+					<div><span data-text="settings00"></span></div>
+					<div>0</div>
 					<div id="dark-theme-switch" class="controls-switch">algo</div>
-					<div>On</div>
+					<div>1</div>
 					
 				
 					<div>algo</div>
-					<div>Big font</div>
-					<div>Off</div>
+					<div><span data-text="settings01"></span></div>
+					<div>0</div>
 					<div id="big-font-switch" class="controls-switch">algo</div>
-					<div>On</div>
+					<div>1</div>
 					
 				
 					<div>algo</div>
-					<div>High contrast</div>
-					<div>Off</div>
+					<div><span data-text="settings02"></span></div>
+					<div>0</div>
 					<div id="high-contrast-switch" class="controls-switch">algo</div>
-					<div>On</div>
+					<div>1</div>
 				</article>
 			</div>
 
 			<div class="language-options">
 				<div class="language-title">
-					<span>Language</span>
+					<span data-text="settings03"></span>
 				</div>
 				<div class="language-items">
 
@@ -337,11 +388,12 @@ require_once "php/main.php";
 
 					
 					<div class="flag">algo</div>
-					<div class="lang-title">Spanish</div>
+					<div class="lang-title">Español</div>
 					<div><span class="lang-option" id="lang-spa-button">algo</span></div>
 
 
 				</div>
+				Website under construction
 			</div>
 		</section>
 
@@ -350,8 +402,8 @@ require_once "php/main.php";
 
 
 	<footer>
-		<p><?php print $translation["tfooter1"];?><a href="https://github.com/XitusDev" target="_blank" rel="noopener noreferrer">XitusDev</a> &copy;2021</p>
-		<p><?php print $translation["tfooter2"];?><a href="http://" target="_blank" rel="noopener noreferrer"><?php print $translation["tfooter3"];?></a></p>
+		<p><span data-text="tfooter1"></span><a href="https://github.com/XitusDev" target="_blank" rel="noopener noreferrer">XitusDev</a> &copy;2021</p>
+		<p><span data-text="tfooter2"></span><a href="http://" target="_blank" rel="noopener noreferrer"><span data-text="tfooter3"></span></a></p>
 	</footer>
 </body>
 
