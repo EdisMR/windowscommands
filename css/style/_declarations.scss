@@ -65,6 +65,12 @@ header{
 		font-size: 50px;
 		width: auto;
 		line-height: 10px;
+		&:hover{
+			background-color: rgb(117, 208, 245);
+		}
+		&:active{
+			background-color: rgb(104, 184, 216);
+		}
 	}
 }
 
@@ -136,7 +142,8 @@ $menu-padding:30px;
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
-	display: grid;
+	/* display: grid; */
+	display: none;
 	place-items: center;
 }
 
@@ -178,10 +185,10 @@ $menu-padding:30px;
 		transform: translateY(-4px);
 	}
 	&:hover{
-		background-color: rgb(196, 41, 41);
+		background-color: rgb(223, 39, 39);
 	}
 	&:active{
-		background-color: rgb(196, 41, 41);
+		background-color: rgb(170, 30, 30);
 		span{
 			transform: translateY(-3px);
 		}

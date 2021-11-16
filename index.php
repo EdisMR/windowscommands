@@ -30,7 +30,7 @@ require_once "php/main.php";
 			</h1>
 		</div>
 		<div class="header-menu">
-			<button title="menu">
+			<button title="menu" id="openMenu">
 				<!-- Boton de menú -->&#x2261;
 			</button>
 		</div>
@@ -287,7 +287,7 @@ require_once "php/main.php";
 			<div class="menu-share-options">
 				<article class="share-item">
 					<div class="share-ico">algo</div>
-					<div class="share-text">Share text</div>
+					<div class="share-text" id="share-text-element">Share text</div>
 				</article>
 				<article class="share-item">
 					<div class="share-ico">algo</div>
@@ -306,21 +306,21 @@ require_once "php/main.php";
 					<div>algo</div>
 					<div>Dark theme</div>
 					<div>Off</div>
-					<div>algo</div>
+					<div id="dark-theme-switch" class="controls-switch">algo</div>
 					<div>On</div>
 					
 				
 					<div>algo</div>
 					<div>Big font</div>
 					<div>Off</div>
-					<div>algo</div>
+					<div id="big-font-switch" class="controls-switch">algo</div>
 					<div>On</div>
 					
 				
 					<div>algo</div>
 					<div>High contrast</div>
 					<div>Off</div>
-					<div>algo</div>
+					<div id="high-contrast-switch" class="controls-switch">algo</div>
 					<div>On</div>
 				</article>
 			</div>
@@ -333,12 +333,12 @@ require_once "php/main.php";
 
 					<div class="flag">algo</div>
 					<div class="lang-title">English</div>
-					<div><span class="lang-option">algo</span></div>
+					<div><span class="lang-option" id="lang-eng-button">algo</span></div>
 
 					
 					<div class="flag">algo</div>
 					<div class="lang-title">Spanish</div>
-					<div><span class="lang-option">algo</span></div>
+					<div><span class="lang-option" id="lang-spa-button">algo</span></div>
 
 
 				</div>
