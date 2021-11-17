@@ -95,18 +95,20 @@ documentButtons.langEnglish.addEventListener(
 	() => {
 		if (localStorage.lang != availLang[0]) {
 			setLang(availLang[0]);
-			location.reload();
+			settingActualLang()
+			innerText()
 		}
 	},
 	false
-);
-
-documentButtons.langSpanish.addEventListener(
-	"click",
-	() => {
-		if (localStorage.lang != availLang[1]) {
-			setLang(availLang[1]);
-			location.reload();
+	);
+	
+	documentButtons.langSpanish.addEventListener(
+		"click",
+		() => {
+			if (localStorage.lang != availLang[1]) {
+				setLang(availLang[1]);
+				settingActualLang()
+				innerText()
 		}
 	},
 	false
@@ -178,6 +180,11 @@ function setLangAuto() {
 }
 
 function settingActualLang() {
+	let elements:HTMLButtonElement[]
+	elements=Array.from(document.querySelectorAll(".lang-option"))
+	elements.forEach(elm=>{
+		elm.classList.remove("lang-option-active");
+	})
 	if (localStorage.lang == availLang[0]) {
 		documentButtons.langEnglish.classList.add("lang-option-active");
 	}
@@ -323,7 +330,6 @@ function contrastSwitch() {
 	} else {
 		if (localStorage.contrast == "true") {
 			localStorage.contrast = "false";
-			removeContrast();
 			location.reload();
 		}
 	}
@@ -340,12 +346,6 @@ function applyContrast() {
 }
 
 function removeContrast() {
-	let arrayTodos: HTMLElement[];
-	arrayTodos = Array.from(document.querySelectorAll("[data-text"));
-	arrayTodos.forEach((elm) => {
-		elm.style.backgroundColor = "auto";
-		elm.style.color = "auto";
-	});
 }
 
 
