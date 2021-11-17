@@ -14,6 +14,31 @@ const languageUrl = [
     localStorage.bigfont,
     localStorage.contrast
  */
+const alertsSpa = {
+    copyerrorspa: "",
+    copyerroreng: "",
+    copysuccessspa: "",
+    copysuccesseng: "",
+};
+const alerts = {
+    copyerror: {
+        0: "Task failed",
+        1: "Ha fallado la tarea"
+    },
+    copysuccess: {
+        0: "Copied to clipboard",
+        1: "Copiado al portapapeles"
+    },
+    shareerror: {
+        0: "Failed to share",
+        1: "Error al compartir"
+    },
+    sharesuccess: {
+        0: "",
+        1: ""
+    }
+};
+alertify.set('notifier', 'position', 'top-center');
 /* All the Buttons */
 const documentButtons = {
     openMenu: document.querySelector("#openMenu"),
@@ -129,14 +154,32 @@ function shareEvent() {
             title: titleElm.innerText,
         })
             .catch((e) => {
-            alert("No fue posible");
+            if (localStorage.lang == availLang[0]) {
+                alertify.error(alerts.shareerror[0]);
+            }
+            if (localStorage.lang == availLang[1]) {
+                alertify.error(alerts.shareerror[1]);
+            }
         });
     }
     else {
         let copyText = `${titleElm.innerText} *** ${window.location.href}`;
         window.navigator.clipboard.writeText(copyText)
             .then(() => {
-            /* Add something visual here */
+            if (localStorage.lang == availLang[0]) {
+                alertify.success(alerts.copysuccess[0]);
+            }
+            if (localStorage.lang == availLang[1]) {
+                alertify.success(alerts.copysuccess[1]);
+            }
+        })
+            .catch(e => {
+            if (localStorage.lang == availLang[0]) {
+                alertify.error(alerts.copyerror[0]);
+            }
+            if (localStorage.lang == availLang[1]) {
+                alertify.error(alerts.copyerror[1]);
+            }
         });
     }
 }

@@ -349,7 +349,7 @@
 				<!-- download -->
 				<article class="share-item">
 					<div class="share-ico"><span class="ms-Icon ms-Icon--DownloadDocument"></span></div>
-					<div class="share-text"><a href="assets/windows-connads.pdf" download="windows-connads.pdf" data-text="settings05"></a></div>
+					<div class="share-text"><a href="assets/windows-commands.pdf" download="windows-commands.pdf" data-text="settings05"></a></div>
 				</article>
 
 				<!-- contribute -->
