@@ -56,6 +56,10 @@ documentButtons.closeMenu.addEventListener("click", closeMenu, false);
 documentButtons.shareBtn.addEventListener("click", shareEvent, false);
 documentButtons.bigFontSwitch.addEventListener("click", switchBigFont, false);
 documentButtons.highContrastSwitch.addEventListener("click", contrastSwitch, false);
+window.addEventListener("keyup", (e) => {
+    if (e.key == "Escape")
+        closeMenu();
+}, false);
 documentButtons.langEnglish.addEventListener("click", () => {
     if (localStorage.lang != availLang[0]) {
         setLang(availLang[0]);
@@ -74,7 +78,6 @@ function openMenu() {
 function closeMenu() {
     documentButtons.menuDisplay.style.display = "none";
 }
-openMenu();
 /* ******************************* */
 /* Logic fot the translation inner */
 /* ******************************* */
@@ -102,16 +105,15 @@ function setLang(newlang) {
 /* Call it to set the language automatically */
 /* If not english or spanish, set it to english */
 function setLangAuto() {
-    if (navigator.languages[0].includes(availLang[0])) {
-        setLang(availLang[0]);
+    if (navigator.languages[0].includes(availLang[1])) {
+        setLang(availLang[1]);
+        alertify.message("Puedes cambiarlo en configuraciones");
+        alertify.message("Idioma configurado automaticamente");
     }
     else {
-        if (navigator.languages[0].includes(availLang[1])) {
-            setLang(availLang[1]);
-        }
-        else {
-            setLang(availLang[0]);
-        }
+        setLang(availLang[0]);
+        alertify.message("You can change it on Settings");
+        alertify.message("Language set automatically");
     }
 }
 function settingActualLang() {
@@ -248,7 +250,7 @@ function contrastSwitch() {
 }
 function applyContrast() {
     let arrayTodos;
-    arrayTodos = Array.from(document.querySelectorAll("[data-text"));
+    arrayTodos = Array.from(document.querySelectorAll("td,p,[data-text]"));
     arrayTodos.forEach(elm => {
         elm.style.backgroundColor = "black";
         elm.style.color = "yellow";
@@ -262,5 +264,4 @@ function removeContrast() {
         elm.style.backgroundColor = "auto";
         elm.style.color = "auto";
     });
-    /* documentButtons.highContrastSwitch.classList.remove("switch-active") */
 }
