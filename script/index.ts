@@ -49,6 +49,7 @@ const documentButtons: {
 	openMenu: HTMLButtonElement;
 	menuDisplay: HTMLElement;
 	closeMenu: HTMLButtonElement;
+	downloadBtn:HTMLButtonElement;
 	shareBtn: HTMLElement;
 	darkThemeSwitch: HTMLElement;
 	bigFontSwitch: HTMLElement;
@@ -59,18 +60,18 @@ const documentButtons: {
 	openMenu: <HTMLButtonElement>document.querySelector("#openMenu"),
 	menuDisplay: <HTMLElement>document.querySelector("#menu-priorization"),
 	closeMenu: <HTMLButtonElement>document.querySelector("#menu-close-btn"),
+	downloadBtn:<HTMLButtonElement>document.querySelector("a[download]"),
 	shareBtn: <HTMLElement>document.querySelector("#share-text-element"),
 	darkThemeSwitch: <HTMLElement>document.querySelector("#dark-theme-switch"),
 	bigFontSwitch: <HTMLElement>document.querySelector("#big-font-switch"),
-	highContrastSwitch: <HTMLElement>(
-		document.querySelector("#high-contrast-switch")
-	),
+	highContrastSwitch: <HTMLElement>(document.querySelector("#high-contrast-switch")),
 	langEnglish: <HTMLElement>document.querySelector("#lang-eng-button"),
 	langSpanish: <HTMLElement>document.querySelector("#lang-spa-button"),
 };
 
 documentButtons.openMenu.addEventListener("click", openMenu, false);
 documentButtons.closeMenu.addEventListener("click", closeMenu, false);
+documentButtons.downloadBtn.addEventListener("click",downloadDocument,false)
 documentButtons.shareBtn.addEventListener("click", shareEvent, false);
 documentButtons.bigFontSwitch.addEventListener("click", switchBigFont, false);
 documentButtons.highContrastSwitch.addEventListener(
@@ -279,6 +280,8 @@ function switchBigFont() {
 }
 
 function applyBigFont(): void {
+	documentButtons.bigFontSwitch.classList.add("switch-active");
+
 	let arrayTodos: HTMLElement[];
 	arrayTodos = Array.from(document.querySelectorAll("*"));
 	arrayTodos.forEach((elm) => {
@@ -326,8 +329,8 @@ function applyContrast() {
 	let arrayTodos: HTMLElement[];
 	arrayTodos = Array.from(document.querySelectorAll("td,p,[data-text]"));
 	arrayTodos.forEach((elm) => {
-		elm.style.backgroundColor = "black";
-		elm.style.color = "yellow";
+		elm.style.backgroundColor = "#232323";
+		elm.style.color = "#d7d70f";
 	});
 	documentButtons.highContrastSwitch.classList.add("switch-active");
 }
@@ -341,3 +344,12 @@ function removeContrast() {
 	});
 }
 
+
+function downloadDocument(){
+	if(localStorage.lang==availLang[0]){
+		alertify.message("The download is starting ...")
+	}
+	if(localStorage.lang==availLang[1]){
+		alertify.message("La descarga está iniciando ...")
+	}
+}

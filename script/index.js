@@ -33,6 +33,7 @@ const documentButtons = {
     openMenu: document.querySelector("#openMenu"),
     menuDisplay: document.querySelector("#menu-priorization"),
     closeMenu: document.querySelector("#menu-close-btn"),
+    downloadBtn: document.querySelector("a[download]"),
     shareBtn: document.querySelector("#share-text-element"),
     darkThemeSwitch: document.querySelector("#dark-theme-switch"),
     bigFontSwitch: document.querySelector("#big-font-switch"),
@@ -42,6 +43,7 @@ const documentButtons = {
 };
 documentButtons.openMenu.addEventListener("click", openMenu, false);
 documentButtons.closeMenu.addEventListener("click", closeMenu, false);
+documentButtons.downloadBtn.addEventListener("click", downloadDocument, false);
 documentButtons.shareBtn.addEventListener("click", shareEvent, false);
 documentButtons.bigFontSwitch.addEventListener("click", switchBigFont, false);
 documentButtons.highContrastSwitch.addEventListener("click", contrastSwitch, false);
@@ -209,6 +211,7 @@ function switchBigFont() {
     }
 }
 function applyBigFont() {
+    documentButtons.bigFontSwitch.classList.add("switch-active");
     let arrayTodos;
     arrayTodos = Array.from(document.querySelectorAll("*"));
     arrayTodos.forEach((elm) => {
@@ -253,8 +256,8 @@ function applyContrast() {
     let arrayTodos;
     arrayTodos = Array.from(document.querySelectorAll("td,p,[data-text]"));
     arrayTodos.forEach((elm) => {
-        elm.style.backgroundColor = "black";
-        elm.style.color = "yellow";
+        elm.style.backgroundColor = "#232323";
+        elm.style.color = "#d7d70f";
     });
     documentButtons.highContrastSwitch.classList.add("switch-active");
 }
@@ -265,4 +268,12 @@ function removeContrast() {
         elm.style.backgroundColor = "auto";
         elm.style.color = "auto";
     });
+}
+function downloadDocument() {
+    if (localStorage.lang == availLang[0]) {
+        alertify.message("The download is starting ...");
+    }
+    if (localStorage.lang == availLang[1]) {
+        alertify.message("La descarga está iniciando ...");
+    }
 }
