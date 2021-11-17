@@ -32,6 +32,7 @@ header{
 	width: 100vw;
 	height: 80px;
 	background-color: var(--primary);
+	z-index: 10;
 }
 
 .header-title{
@@ -365,4 +366,18 @@ $menu-padding:30px;
 		padding-left: 0px;
 		padding-right: 0px;
 	}
+}
+
+@keyframes contributeColor{
+	0%{color: rgb(10, 226, 255);}
+	20%{color: rgb(96, 183, 255);}
+	40%{color: rgb(241, 134, 255);}
+	60%{color: rgb(217, 230, 105);}
+	80%{color: rgb(79, 235, 113);}
+	100%{color: rgb(10, 226, 255);}
+}
+
+.contribute{
+	transition-duration: .2s;
+	animation: contributeColor 5s linear infinite;
 }

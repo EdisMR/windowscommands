@@ -1,3 +1,6 @@
+/* Contribute URL */
+const contributeURL:string="";
+
 /* Available Languages */
 const availLang: string[] = ["eng", "es"];
 
@@ -353,3 +356,9 @@ function downloadDocument(){
 		alertify.message("La descarga está iniciando ...")
 	}
 }
+
+let contributeElements:HTMLAnchorElement[];
+contributeElements=Array.from(document.querySelectorAll(".contribute"))
+contributeElements.forEach(elm=>{
+	elm.setAttribute("href",contributeURL);
+})

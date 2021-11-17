@@ -1,4 +1,5 @@
 "use strict";
+const contributeURL = "";
 const availLang = ["eng", "es"];
 const languageUrl = [
     window.location.href + "lang/eng.json",
@@ -277,3 +278,8 @@ function downloadDocument() {
         alertify.message("La descarga está iniciando ...");
     }
 }
+let contributeElements;
+contributeElements = Array.from(document.querySelectorAll(".contribute"));
+contributeElements.forEach(elm => {
+    elm.setAttribute("href", contributeURL);
+});
