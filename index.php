@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
 	<title data-text="t01"></title>
+	<meta name="description" content="Microsoft Windows Commands to work faster">
 
 	<link rel="shortcut icon" href="assets/icons/windows.ico" type="image/x-icon">
 	<link rel="stylesheet" href="css/compiled/index.css">
@@ -58,99 +59,99 @@
 						<td><span data-text="t06"></td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+&#x2191;</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+&#x2191;</td>
 						<td><span data-text="t10"></td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+&#x2193;</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+&#x2193;</td>
 						<td><span data-text="t09"></td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+&#x2192;</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+&#x2192;</td>
 						<td><span data-text="t13"></td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+&#x2190;</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+&#x2190;</td>
 						<td><span data-text="t18"></td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+.</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+.</td>
 						<td><span data-text="t07"></td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+A</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+A</td>
 						<td><span data-text="t08"></td>
 					</tr>
 
 					<tr>
-						<td><span class="win-icon"></span>+B</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+B</td>
 						<td><span data-text="t11"></td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+D</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+D</td>
 						<td><span data-text="t12"></td>
 					</tr>
 
 					<tr>
-						<td><span class="win-icon"></span>+E</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+E</td>
 						<td><span data-text="t14"></td>
 					</tr>
 
 					<tr>
-						<td><span class="win-icon"></span>+F</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+F</td>
 						<td><span data-text="t16"></td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+I</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+I</td>
 						<td><span data-text="t17"></td>
 					</tr>
 
 					<tr>
-						<td><span class="win-icon"></span>+K</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+K</td>
 						<td><span data-text="t19"></td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+L</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+L</td>
 						<td><span data-text="t20"></td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+M</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+M</td>
 						<td><span data-text="t21"></td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+P</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+P</td>
 						<td><span data-text="t22"></td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+R</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+R</td>
 						<td><span data-text="t23"></td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+[space]</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+[space]</td>
 						<td><span data-text="t15"></td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+T</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+T</td>
 						<td><span data-text="t24"></td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+Tab</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+Tab</td>
 						<td><span data-text="t25"></td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+W</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+W</td>
 						<td><span data-text="t26"></td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+X</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+X</td>
 						<td><span data-text="t27"></td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+Mayus+S</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+Mayus+S</td>
 						<td><span data-text="t28"></td>
 					</tr>
 					<tr>
-						<td><span class="win-icon"></span>+Impr Pant</td>
+						<td><span class="win-icon ms-Icon ms-Icon--WindowsLogo"></span>+Impr Pant</td>
 						<td><span data-text="t29"></td>
 					</tr>
 
@@ -329,71 +330,95 @@
 
 		<section class="menu-container">
 			<div class="menu-title">
-				<div class="menu-title-text">Menu</div>
+				<div class="menu-title-text" data-text="settings07"></div>
 				<div class="menu-close">
-					<button id="menu-close-btn"><span>&#xd7;</span></button>
+					<button id="menu-close-btn">
+						<span>&#xd7;</span>
+					</button>
 				</div>
 			</div>
 
 			<div class="menu-share-options">
+
+				<!-- share -->
 				<article class="share-item">
 					<div class="share-ico"><span class="ms-Icon ms-Icon--Share"></span></div>
-					<div class="share-text" id="share-text-element">Share text</div>
+					<div class="share-text" id="share-text-element" data-text="settings04"></div>
 				</article>
+
+				<!-- download -->
 				<article class="share-item">
 					<div class="share-ico"><span class="ms-Icon ms-Icon--DownloadDocument"></span></div>
-					<div class="share-text">Download pdf</div>
+					<div class="share-text"><a href="assets/windows-connads.pdf" download="windows-connads.pdf" data-text="settings05"></a></div>
 				</article>
+
+				<!-- contribute -->
 				<article class="share-item">
 					<div class="share-ico"><span class="ms-Icon ms-Icon--Money"></span></div>
-					<div class="share-text">Contribute</div>
+					<div class="share-text"><a href="##" target="_blank" rel="noopener noreferrer" data-text="settings06"></a></div>
 				</article>
 			</div>
 
 			<div class="settings-options">
 				<article class="settings">
 					
-				
-					<div>algo</div>
-					<div><span data-text="settings00"></span></div>
+
+					<!-- Dark theme - Not necessary because prefers-color-scheme -->
+					<!-- <div><span class="ms-Icon ms-Icon--Contrast"></span></div>
+					<div class="settings-text"><span data-text="settings00"></span></div>
 					<div>0</div>
 					<div id="dark-theme-switch" class="controls-switch">algo</div>
+					<div>1</div> -->
+					
+					<!-- Big font -->
+					<div><span class="ms-Icon ms-Icon--FontSize"></span></div>
+					<div class="settings-text"><span data-text="settings01"></span></div>
+					<div>0</div>
+					<div id="big-font-switch" class="controls-switch">
+						<figure>
+							<img src="assets/icons/switch.svg" alt="switch">
+						</figure>
+					</div>
 					<div>1</div>
 					
 				
-					<div>algo</div>
-					<div><span data-text="settings01"></span></div>
+					<div><span class="ms-Icon ms-Icon--RedEye12"></span></div>
+					<div class="settings-text"><span data-text="settings02"></span></div>
 					<div>0</div>
-					<div id="big-font-switch" class="controls-switch">algo</div>
-					<div>1</div>
-					
-				
-					<div>algo</div>
-					<div><span data-text="settings02"></span></div>
-					<div>0</div>
-					<div id="high-contrast-switch" class="controls-switch">algo</div>
+					<div id="high-contrast-switch" class="controls-switch">
+						<figure>
+							<img src="assets/icons/switch.svg" alt="switch">
+						</figure>
+					</div>
 					<div>1</div>
 				</article>
 			</div>
 
 			<div class="language-options">
 				<div class="language-title">
-					<span data-text="settings03"></span>
+					<span class="ms-Icon ms-Icon--LocaleLanguage"></span><span data-text="settings03"></span>
 				</div>
 				<div class="language-items">
 
-					<div class="flag">algo</div>
+					<div class="flag">
+						<figure>
+							<img   src="https://flagcdn.com/16x12/us.png" alt="United states">
+						</figure>
+					</div>
 					<div class="lang-title">English</div>
-					<div><span class="lang-option" id="lang-eng-button">algo</span></div>
+					<div><span class="lang-option" id="lang-eng-button"><span></span></span></div>
 
 					
-					<div class="flag">algo</div>
+					<div class="flag">
+						<figure>
+							<img   src="https://flagcdn.com/16x12/es.png" alt="Spain">
+						</figure>
+					</div>
 					<div class="lang-title">Español</div>
-					<div><span class="lang-option" id="lang-spa-button">algo</span></div>
+					<div><span class="lang-option" id="lang-spa-button"><span></span></span></div>
 
 
 				</div>
-				Website under construction
 			</div>
 		</section>
 

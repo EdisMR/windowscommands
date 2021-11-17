@@ -10,6 +10,13 @@ const languageUrl:string[]=[
 	window.location.href+"lang/spa.json",
 ]
 
+/* 
+	localStorage.lang,
+	localStorage.bigfont,
+	localStorage.contrast
+ */
+
+
 /* All the Buttons */
 const documentButtons:{
 	openMenu:HTMLButtonElement
@@ -35,7 +42,24 @@ const documentButtons:{
 
 documentButtons.openMenu.addEventListener("click",openMenu,false)
 documentButtons.closeMenu.addEventListener("click",closeMenu,false)
+documentButtons.shareBtn.addEventListener("click",shareEvent,false)
+documentButtons.bigFontSwitch.addEventListener("click",switchBigFont,false)
+documentButtons.highContrastSwitch.addEventListener("click",contrastSwitch,false)
 
+
+documentButtons.langEnglish.addEventListener("click",()=>{
+	if(localStorage.lang!=availLang[0]){
+		setLang(availLang[0])
+		location.reload()
+	}
+},false)
+
+documentButtons.langSpanish.addEventListener("click",()=>{
+	if(localStorage.lang!=availLang[1]){
+		setLang(availLang[1])
+		location.reload()
+	}
+},false)
 
 function openMenu(){
 	documentButtons.menuDisplay.style.display="grid";
@@ -55,9 +79,11 @@ openMenu();
 /* Localstorage for the configured language and call to inner the text */
 if (!localStorage.lang){
 	setLangAuto()
-	innerText();
+	innerText()
+	settingActualLang()
 }else{
-	innerText();
+	innerText()
+	settingActualLang()
 }
 
 /* Call it to set the new language */
@@ -68,7 +94,7 @@ function setLang(newlang:string):void{
 	if(newlang==availLang[0]){
 		temp.setAttribute("lang","en")
 	}
-
+	
 	if(newlang==availLang[1]){
 		temp.setAttribute("lang","es")
 	}
@@ -87,6 +113,20 @@ function setLangAuto(){
 		}
 	}
 }
+
+
+function settingActualLang(){
+	if(localStorage.lang==availLang[0]){
+		documentButtons.langEnglish.classList.add("lang-option-active")
+	}
+	if(localStorage.lang==availLang[1]){
+		documentButtons.langSpanish.classList.add("lang-option-active")
+	}
+
+}
+
+
+
 
 /* To call the translations and inner the document with the corresponding translation */
 function innerText(){
@@ -115,4 +155,127 @@ function innerText(){
 
 	})
 
+}
+
+
+
+
+
+
+
+function shareEvent(){
+	let titleElm:HTMLElement=<HTMLElement>document.head.querySelector("title")
+	if(navigator.userAgentData.mobile){
+		window.navigator.share({
+			url: window.location.href,
+			text: titleElm.innerText,
+			title: titleElm.innerText,
+		})
+		.catch(
+			(e) => { 
+				alert("No fue posible")
+			}
+			)
+		}else{
+			let copyText:string=`${titleElm.innerText} *** ${window.location.href}`
+			window.navigator.clipboard.writeText(copyText)
+			.then(() => {
+			})
+	}
+}
+
+
+if(localStorage.bigfont!="true" && localStorage.bigfont!="false"){
+	localStorage.bigfont="false";
+}
+if(localStorage.bigfont=="true"){
+	applyBigFont()
+}
+if(localStorage.bigfont=="false"){
+	removeBigFont()
+}
+
+
+function switchBigFont(){
+	if(localStorage.bigfont=="false"){
+		localStorage.bigfont="true"
+		applyBigFont()
+	}else{
+		if(localStorage.bigfont=="true"){
+			localStorage.bigfont="false"
+			removeBigFont()
+		}
+	}
+
+}
+
+
+function applyBigFont():void{
+	let arrayTodos:HTMLElement[]
+	arrayTodos=Array.from(document.querySelectorAll("*"));
+	arrayTodos.forEach(elm=>{
+		elm.dataset.initialfont=getComputedStyle(elm).fontSize
+	})
+	arrayTodos.forEach(elm=>{
+		elm.style.fontSize=`calc(${elm.dataset.initialfont} + 5px)`
+	})
+	documentButtons.bigFontSwitch.classList.add("switch-active")
+}
+
+function removeBigFont():void{
+	let arrayTodos:HTMLElement[]
+	arrayTodos=Array.from(document.querySelectorAll("*"));
+	arrayTodos.forEach((elm:any) => {
+		elm.style.fontSize=elm.dataset.initialfont
+		elm.removeAttribute("data-initialfont");
+	})
+	documentButtons.bigFontSwitch.classList.remove("switch-active")
+}
+
+
+
+
+if(localStorage.contrast!="true" && localStorage.contrast!="false"){
+	localStorage.contrast="false";
+}
+if(localStorage.contrast=="true"){
+	applyContrast()
+}
+if(localStorage.contrast=="false"){
+	removeContrast()
+}
+
+function contrastSwitch(){
+	if(localStorage.contrast=="false"){
+		localStorage.contrast="true"
+		applyContrast()
+	}else{
+		if(localStorage.contrast=="true"){
+			localStorage.contrast="false"
+			removeContrast()
+			location.reload()
+		}
+	}
+}
+
+function applyContrast(){
+
+	let arrayTodos:HTMLElement[]
+	arrayTodos=Array.from(document.querySelectorAll("[data-text"));
+	arrayTodos.forEach(elm=>{
+		elm.style.backgroundColor="black"
+		elm.style.color="yellow"
+	})
+	documentButtons.highContrastSwitch.classList.add("switch-active")
+
+}
+
+function removeContrast(){
+	let arrayTodos:HTMLElement[]
+	arrayTodos=Array.from(document.querySelectorAll("[data-text"));
+	arrayTodos.forEach(elm=>{
+		elm.style.backgroundColor="auto"
+		elm.style.color="auto"
+	})
+	/* documentButtons.highContrastSwitch.classList.remove("switch-active") */
 }

@@ -1,16 +1,21 @@
 "use strict";
 /* Available Languages */
-var availLang = [
+const availLang = [
     "eng",
     "es",
 ];
 /* URL for fetch to return the translations */
-var languageUrl = [
+const languageUrl = [
     window.location.href + "lang/eng.json",
     window.location.href + "lang/spa.json",
 ];
+/*
+    localStorage.lang,
+    localStorage.bigfont,
+    localStorage.contrast
+ */
 /* All the Buttons */
-var documentButtons = {
+const documentButtons = {
     openMenu: document.querySelector("#openMenu"),
     menuDisplay: document.querySelector("#menu-priorization"),
     closeMenu: document.querySelector("#menu-close-btn"),
@@ -23,6 +28,21 @@ var documentButtons = {
 };
 documentButtons.openMenu.addEventListener("click", openMenu, false);
 documentButtons.closeMenu.addEventListener("click", closeMenu, false);
+documentButtons.shareBtn.addEventListener("click", shareEvent, false);
+documentButtons.bigFontSwitch.addEventListener("click", switchBigFont, false);
+documentButtons.highContrastSwitch.addEventListener("click", contrastSwitch, false);
+documentButtons.langEnglish.addEventListener("click", () => {
+    if (localStorage.lang != availLang[0]) {
+        setLang(availLang[0]);
+        location.reload();
+    }
+}, false);
+documentButtons.langSpanish.addEventListener("click", () => {
+    if (localStorage.lang != availLang[1]) {
+        setLang(availLang[1]);
+        location.reload();
+    }
+}, false);
 function openMenu() {
     documentButtons.menuDisplay.style.display = "grid";
 }
@@ -37,14 +57,16 @@ openMenu();
 if (!localStorage.lang) {
     setLangAuto();
     innerText();
+    settingActualLang();
 }
 else {
     innerText();
+    settingActualLang();
 }
 /* Call it to set the new language */
 function setLang(newlang) {
     localStorage.lang = newlang;
-    var temp = document.querySelector("html");
+    let temp = document.querySelector("html");
     if (newlang == availLang[0]) {
         temp.setAttribute("lang", "en");
     }
@@ -67,9 +89,17 @@ function setLangAuto() {
         }
     }
 }
+function settingActualLang() {
+    if (localStorage.lang == availLang[0]) {
+        documentButtons.langEnglish.classList.add("lang-option-active");
+    }
+    if (localStorage.lang == availLang[1]) {
+        documentButtons.langSpanish.classList.add("lang-option-active");
+    }
+}
 /* To call the translations and inner the document with the corresponding translation */
 function innerText() {
-    var urlFetch = "";
+    let urlFetch = "";
     if (localStorage.lang == availLang[0]) {
         urlFetch = languageUrl[0];
     }
@@ -77,16 +107,117 @@ function innerText() {
         urlFetch = languageUrl[1];
     }
     fetch(urlFetch)
-        .then(function (result) {
+        .then(result => {
         return result.text();
     })
-        .then(function (result) {
+        .then(result => {
         return JSON.parse(result);
     })
-        .then(function (jsonResult) {
-        var elements = Array.from(document.querySelectorAll("[data-text]"));
-        elements.forEach(function (elm) {
+        .then((jsonResult) => {
+        let elements = Array.from(document.querySelectorAll("[data-text]"));
+        elements.forEach((elm) => {
             elm.innerHTML = jsonResult[elm.dataset.text];
         });
     });
+}
+function shareEvent() {
+    let titleElm = document.head.querySelector("title");
+    if (navigator.userAgentData.mobile) {
+        window.navigator.share({
+            url: window.location.href,
+            text: titleElm.innerText,
+            title: titleElm.innerText,
+        })
+            .catch((e) => {
+            alert("No fue posible");
+        });
+    }
+    else {
+        let copyText = `${titleElm.innerText} *** ${window.location.href}`;
+        window.navigator.clipboard.writeText(copyText)
+            .then(() => {
+            /* Add something visual here */
+        });
+    }
+}
+if (localStorage.bigfont != "true" && localStorage.bigfont != "false") {
+    localStorage.bigfont = "false";
+}
+if (localStorage.bigfont == "true") {
+    applyBigFont();
+}
+if (localStorage.bigfont == "false") {
+    removeBigFont();
+}
+function switchBigFont() {
+    if (localStorage.bigfont == "false") {
+        localStorage.bigfont = "true";
+        applyBigFont();
+    }
+    else {
+        if (localStorage.bigfont == "true") {
+            localStorage.bigfont = "false";
+            removeBigFont();
+        }
+    }
+}
+function applyBigFont() {
+    let arrayTodos;
+    arrayTodos = Array.from(document.querySelectorAll("*"));
+    arrayTodos.forEach(elm => {
+        elm.dataset.initialfont = getComputedStyle(elm).fontSize;
+    });
+    arrayTodos.forEach(elm => {
+        elm.style.fontSize = `calc(${elm.dataset.initialfont} + 5px)`;
+    });
+    documentButtons.bigFontSwitch.classList.add("switch-active");
+}
+function removeBigFont() {
+    let arrayTodos;
+    arrayTodos = Array.from(document.querySelectorAll("*"));
+    arrayTodos.forEach((elm) => {
+        elm.style.fontSize = elm.dataset.initialfont;
+        elm.removeAttribute("data-initialfont");
+    });
+    documentButtons.bigFontSwitch.classList.remove("switch-active");
+}
+if (localStorage.contrast != "true" && localStorage.contrast != "false") {
+    localStorage.contrast = "false";
+}
+if (localStorage.contrast == "true") {
+    applyContrast();
+}
+if (localStorage.contrast == "false") {
+    removeContrast();
+}
+function contrastSwitch() {
+    if (localStorage.contrast == "false") {
+        localStorage.contrast = "true";
+        applyContrast();
+    }
+    else {
+        if (localStorage.contrast == "true") {
+            localStorage.contrast = "false";
+            removeContrast();
+            location.reload();
+        }
+    }
+}
+function applyContrast() {
+    let arrayTodos;
+    arrayTodos = Array.from(document.querySelectorAll("[data-text"));
+    arrayTodos.forEach(elm => {
+        elm.style.backgroundColor = "black";
+        elm.style.color = "yellow";
+    });
+    documentButtons.highContrastSwitch.classList.add("switch-active");
+}
+function removeContrast() {
+    let arrayTodos;
+    arrayTodos = Array.from(document.querySelectorAll("[data-text"));
+    arrayTodos.forEach(elm => {
+        elm.style.backgroundColor = "auto";
+        elm.style.color = "auto";
+    });
+    /* documentButtons.highContrastSwitch.classList.remove("switch-active") */
 }

@@ -30,7 +30,7 @@ header{
 	top: 0;
 	left: 0;
 	width: 100vw;
-	height: 100px;
+	height: 80px;
 	background-color: var(--primary);
 }
 
@@ -55,7 +55,7 @@ header{
 	display: inline-block;
 	justify-self: flex-end;
 	position: absolute;
-	top: 22px;
+	top: 16px;
     right: 65px;
 	button{
 		display: inline-block;
@@ -107,8 +107,22 @@ table{
 	}
 	tbody{
 	}
-	td{
-		padding:5px
+	tr{
+		td{
+			padding:5px;
+			padding-top: 10px;
+			&:first-of-type{
+				font-weight: 700;
+				&[colspan]{
+					font-weight: unset;
+					padding-top: 20px;
+					padding-bottom: 20px;
+				}
+			}
+		}
+		&:hover{
+			background-color: rgba($color: white, $alpha: .05);
+		}
 	}
 }
 
@@ -152,6 +166,10 @@ $menu-padding:30px;
 	min-width: 300px;
 	background-color: #414141;
 	color: #eee;
+	border: 1px solid blue;
+	.ms-Icon{
+		font-size: 20px;
+	}
 }
 
 .menu-title{
@@ -197,7 +215,9 @@ $menu-padding:30px;
 }
 
 .menu-share-options{
-	padding: $menu-padding;
+	padding-top: $menu-padding;
+	padding-left: $menu-padding;
+	padding-right: $menu-padding;
 	box-sizing: border-box;
 	display: block;
 	margin: 0;
@@ -207,18 +227,25 @@ $menu-padding:30px;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
+	height: 38px;
 }
 
 .share-ico{
-
+	margin-right: 10px;
 }
 
 .share-text{
 	
 }
 
+#share-text-element{
+	cursor: pointer;
+}
+
 .settings-options{
-	padding: $menu-padding;
+	padding-top: $menu-padding;
+	padding-left: $menu-padding;
+	padding-right: $menu-padding;
 	box-sizing: border-box;
 	display: block;
 	margin: 0;
@@ -226,27 +253,91 @@ $menu-padding:30px;
 
 .settings{
 	display: grid;
-	grid-template-columns: 30px 1fr 50px 70px 50px;
+	grid-template-columns: 30px 1fr 25px 55px 25px;
 	grid-auto-rows: 50px;
 	align-items: center;
+	text-align: center;
+}
+
+.settings-text{
+	text-align: left;
+}
+
+.controls-switch{
+	cursor: pointer;
+	figure{
+		img{
+			background-color: gray;
+			border-radius: 20px;
+			transform: rotateY(180deg);
+		}
+	}
+	&:active{
+		transform: scale3d(0.7, 0.7, 1.5);
+	}
+}
+
+.switch-active{
+	figure{
+		img{
+			background-color: var(--primary);
+			transform: rotateY(0deg);
+		}
+	}
 }
 
 .language-options{
 	padding: $menu-padding;
 	box-sizing: border-box;
-	display: block;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	margin: 0;
+	flex-wrap: wrap;
 }
 
 .language-title{
-
+	width: 100%;
+	.ms-Icon{
+		margin-right: 10px;
+	}
 }
 
 .language-items{
 	display: grid;
-	grid-template-columns: 100px 1fr 20px;
+	grid-template-columns: 25px 1fr 30px;
+	gap: 15px;
+	margin-top: 20px;
+}
+
+.flag{
+	figure{
+		img{
+			width: 25px;
+		}
+	}
 }
 
 .lang-title{
 	
 }
+
+.lang-option{
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border:5px solid rgb(39, 39, 39);
+	border-radius: 50%;
+	background-color: grey;
+	cursor: pointer;
+	&:active{
+		transform: scale3d(0.7, 0.7, 1.5);
+	}
+}
+
+.lang-option-active{
+	border:5px solid black;
+	border-radius: 50%;
+	background-color: var(--primary);
+}
+
