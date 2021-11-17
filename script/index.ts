@@ -1,5 +1,5 @@
 /* Contribute URL */
-const contributeURL:string="";
+const contributeURL:string="https://www.paypal.com/donate/?hosted_button_id=WSB5A7M64PD34";
 
 /* Available Languages */
 const availLang: string[] = ["eng", "es"];
