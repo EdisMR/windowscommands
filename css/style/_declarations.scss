@@ -1,4 +1,4 @@
-/* Estilos generales */
+/* General styles */
 html{
 	user-select: none;
 	background-color: var(--htmlbg);
@@ -356,7 +356,7 @@ $menu-padding:30px;
 	background-color: var(--primary);
 }
 
-
+/* To solve a hidden title */
 @media (max-width:420px){
 	#openMenu{
 		font-size: 40px;

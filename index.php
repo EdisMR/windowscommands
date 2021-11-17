@@ -3,14 +3,14 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
 	<title data-text="t01"></title>
 	<meta name="description" content="Microsoft Windows Commands to work faster">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
 
-	<link rel="shortcut icon" href="assets/icons/windows.ico" type="image/x-icon">
-	<link rel="stylesheet" href="css/compiled/index.css">
 	<script src="script/alertify.js"></script>
 	<script src="script/anime-3.2.1.min.js"></script>
+	<link rel="stylesheet" href="css/compiled/index.css">
+	<link rel="shortcut icon" href="assets/icons/windows.ico" type="image/x-icon">
 	<script defer src="script/index.js"></script>
 </head>
 
@@ -27,7 +27,7 @@
 		</div>
 		<div class="header-menu">
 			<button title="menu" id="openMenu">
-				<!-- Boton de menú -->&#x2261;
+				<!-- Menu Button -->&#x2261;
 			</button>
 		</div>
 	</header>
@@ -363,7 +363,7 @@
 				<article class="settings">
 					
 
-					<!-- Dark theme - Not necessary because prefers-color-scheme -->
+					<!-- Dark theme - Not necessary because prefers-color-scheme function -->
 					<!-- <div><span class="ms-Icon ms-Icon--Contrast"></span></div>
 					<div class="settings-text"><span data-text="settings00"></span></div>
 					<div>0</div>
@@ -381,7 +381,7 @@
 					</div>
 					<div>1</div>
 					
-				
+					<!-- High Contrast -->
 					<div><span class="ms-Icon ms-Icon--RedEye12"></span></div>
 					<div class="settings-text"><span data-text="settings02"></span></div>
 					<div>0</div>
