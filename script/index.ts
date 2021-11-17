@@ -1,330 +1,343 @@
 /* Available Languages */
-const availLang:string[]=[
-	"eng",
-	"es",
-]
+const availLang: string[] = ["eng", "es"];
 
 /* URL for fetch to return the translations */
-const languageUrl:string[]=[
-	window.location.href+"lang/eng.json",
-	window.location.href+"lang/spa.json",
-]
+const languageUrl: string[] = [
+	window.location.href + "lang/eng.json",
+	window.location.href + "lang/spa.json",
+];
 /* 
 	localStorage.lang,
 	localStorage.bigfont,
 	localStorage.contrast
  */
 
-const alertsSpa:{
-	copyerrorspa:string
-	copyerroreng:string
-	copysuccessspa:string
-	copysuccesseng:string
-}={
-	copyerrorspa:"",
-	copyerroreng:"",
-	copysuccessspa:"",
-	copysuccesseng:"",
-}
+const alertsSpa: {
+	copyerrorspa: string;
+	copyerroreng: string;
+	copysuccessspa: string;
+	copysuccesseng: string;
+} = {
+	copyerrorspa: "",
+	copyerroreng: "",
+	copysuccessspa: "",
+	copysuccesseng: "",
+};
 
-const alerts={
-	copyerror:{
-		0:"Task failed",
-		1:"Ha fallado la tarea"
+const alerts = {
+	copyerror: {
+		0: "Task failed",
+		1: "Ha fallado la tarea",
 	},
-	copysuccess:{
-		0:"Copied to clipboard",
-		1:"Copiado al portapapeles"
+	copysuccess: {
+		0: "Copied to clipboard",
+		1: "Copiado al portapapeles",
 	},
-	shareerror:{
-		0:"Failed to share",
-		1:"Error al compartir"
+	shareerror: {
+		0: "Failed to share",
+		1: "Error al compartir",
 	},
-	sharesuccess:{
-		0:"",
-		1:""
-	}
-}
-alertify.set('notifier','position', 'top-center');
+	sharesuccess: {
+		0: "",
+		1: "",
+	},
+};
+alertify.set("notifier", "position", "top-center");
 
 /* All the Buttons */
-const documentButtons:{
-	openMenu:HTMLButtonElement
-	menuDisplay:HTMLElement
-	closeMenu:HTMLButtonElement
-	shareBtn:HTMLElement
-	darkThemeSwitch:HTMLElement
-	bigFontSwitch:HTMLElement
-	highContrastSwitch:HTMLElement
-	langEnglish:HTMLElement
-	langSpanish:HTMLElement
-}={
-	openMenu:<HTMLButtonElement>document.querySelector("#openMenu"),
-	menuDisplay:<HTMLElement>document.querySelector("#menu-priorization"),
-	closeMenu:<HTMLButtonElement>document.querySelector("#menu-close-btn"),
-	shareBtn:<HTMLElement>document.querySelector("#share-text-element"),
-	darkThemeSwitch:<HTMLElement>document.querySelector("#dark-theme-switch"),
-	bigFontSwitch:<HTMLElement>document.querySelector("#big-font-switch"),
-	highContrastSwitch:<HTMLElement>document.querySelector("#high-contrast-switch"),
-	langEnglish:<HTMLElement>document.querySelector("#lang-eng-button"),
-	langSpanish:<HTMLElement>document.querySelector("#lang-spa-button"),
+const documentButtons: {
+	openMenu: HTMLButtonElement;
+	menuDisplay: HTMLElement;
+	closeMenu: HTMLButtonElement;
+	shareBtn: HTMLElement;
+	darkThemeSwitch: HTMLElement;
+	bigFontSwitch: HTMLElement;
+	highContrastSwitch: HTMLElement;
+	langEnglish: HTMLElement;
+	langSpanish: HTMLElement;
+} = {
+	openMenu: <HTMLButtonElement>document.querySelector("#openMenu"),
+	menuDisplay: <HTMLElement>document.querySelector("#menu-priorization"),
+	closeMenu: <HTMLButtonElement>document.querySelector("#menu-close-btn"),
+	shareBtn: <HTMLElement>document.querySelector("#share-text-element"),
+	darkThemeSwitch: <HTMLElement>document.querySelector("#dark-theme-switch"),
+	bigFontSwitch: <HTMLElement>document.querySelector("#big-font-switch"),
+	highContrastSwitch: <HTMLElement>(
+		document.querySelector("#high-contrast-switch")
+	),
+	langEnglish: <HTMLElement>document.querySelector("#lang-eng-button"),
+	langSpanish: <HTMLElement>document.querySelector("#lang-spa-button"),
+};
+
+documentButtons.openMenu.addEventListener("click", openMenu, false);
+documentButtons.closeMenu.addEventListener("click", closeMenu, false);
+documentButtons.shareBtn.addEventListener("click", shareEvent, false);
+documentButtons.bigFontSwitch.addEventListener("click", switchBigFont, false);
+documentButtons.highContrastSwitch.addEventListener(
+	"click",
+	contrastSwitch,
+	false
+);
+window.addEventListener(
+	"keyup",
+	(e: KeyboardEvent) => {
+		if (e.key == "Escape") closeMenu();
+	},
+	false
+);
+
+documentButtons.langEnglish.addEventListener(
+	"click",
+	() => {
+		if (localStorage.lang != availLang[0]) {
+			setLang(availLang[0]);
+			location.reload();
+		}
+	},
+	false
+);
+
+documentButtons.langSpanish.addEventListener(
+	"click",
+	() => {
+		if (localStorage.lang != availLang[1]) {
+			setLang(availLang[1]);
+			location.reload();
+		}
+	},
+	false
+);
+
+function openMenu() {
+	documentButtons.menuDisplay.style.display = "grid";
+	anime({
+		targets: "#menu-priorization",
+		duration: 500,
+		opacity: ["0", "1"],
+		easing: "easeInOutQuad",
+	});
 }
 
-documentButtons.openMenu.addEventListener("click",openMenu,false)
-documentButtons.closeMenu.addEventListener("click",closeMenu,false)
-documentButtons.shareBtn.addEventListener("click",shareEvent,false)
-documentButtons.bigFontSwitch.addEventListener("click",switchBigFont,false)
-documentButtons.highContrastSwitch.addEventListener("click",contrastSwitch,false)
-window.addEventListener("keyup",(e:KeyboardEvent)=>{
-	if(e.key=="Escape")closeMenu();
-},false)
-
-documentButtons.langEnglish.addEventListener("click",()=>{
-	if(localStorage.lang!=availLang[0]){
-		setLang(availLang[0])
-		location.reload()
-	}
-},false)
-
-documentButtons.langSpanish.addEventListener("click",()=>{
-	if(localStorage.lang!=availLang[1]){
-		setLang(availLang[1])
-		location.reload()
-	}
-},false)
-
-function openMenu(){
-	documentButtons.menuDisplay.style.display="grid";
+function closeMenu() {
+	anime({
+		targets: "#menu-priorization",
+		duration: 500,
+		opacity: ["1", "0"],
+		easing: "easeInOutQuad",
+		complete: function () {
+			documentButtons.menuDisplay.style.display = "none";
+		},
+	});
 }
-
-function closeMenu(){
-	documentButtons.menuDisplay.style.display="none";
-}
-
 
 /* ******************************* */
 /* Logic fot the translation inner */
 /* ******************************* */
 
 /* Localstorage for the configured language and call to inner the text */
-if (!localStorage.lang){
-	setLangAuto()
-	innerText()
-	settingActualLang()
-}else{
-	innerText()
-	settingActualLang()
+if (!localStorage.lang) {
+	setLangAuto();
+	innerText();
+	settingActualLang();
+} else {
+	innerText();
+	settingActualLang();
 }
 
 /* Call it to set the new language */
-function setLang(newlang:string):void{
-	localStorage.lang=newlang;
-	let temp=<HTMLHtmlElement>document.querySelector("html");
+function setLang(newlang: string): void {
+	localStorage.lang = newlang;
+	let temp = <HTMLHtmlElement>document.querySelector("html");
 
-	if(newlang==availLang[0]){
-		temp.setAttribute("lang","en")
+	if (newlang == availLang[0]) {
+		temp.setAttribute("lang", "en");
 	}
-	
-	if(newlang==availLang[1]){
-		temp.setAttribute("lang","es")
+
+	if (newlang == availLang[1]) {
+		temp.setAttribute("lang", "es");
 	}
 }
 
 /* Call it to set the language automatically */
 /* If not english or spanish, set it to english */
-function setLangAuto(){
-	if(navigator.languages[0].includes(availLang[1])){
-		setLang(availLang[1])
-		alertify.message("Puedes cambiarlo en configuraciones")
-		alertify.message("Idioma configurado automaticamente")
-	}else{
-		setLang(availLang[0])
-		alertify.message("You can change it on Settings")
-		alertify.message("Language set automatically")
+function setLangAuto() {
+	if (navigator.languages[0].includes(availLang[1])) {
+		setLang(availLang[1]);
+		alertify.message("Puedes cambiarlo en configuraciones");
+		alertify.message("Idioma configurado automaticamente");
+	} else {
+		setLang(availLang[0]);
+		alertify.message("You can change it on Settings");
+		alertify.message("Language set automatically");
 	}
 }
 
-
-function settingActualLang(){
-	if(localStorage.lang==availLang[0]){
-		documentButtons.langEnglish.classList.add("lang-option-active")
+function settingActualLang() {
+	if (localStorage.lang == availLang[0]) {
+		documentButtons.langEnglish.classList.add("lang-option-active");
 	}
-	if(localStorage.lang==availLang[1]){
-		documentButtons.langSpanish.classList.add("lang-option-active")
+	if (localStorage.lang == availLang[1]) {
+		documentButtons.langSpanish.classList.add("lang-option-active");
 	}
-
 }
-
-
-
 
 /* To call the translations and inner the document with the corresponding translation */
-function innerText(){
-	let urlFetch:string=""
-	if(localStorage.lang==availLang[0]){
-		urlFetch=languageUrl[0]
+function innerText() {
+	let urlFetch: string = "";
+	if (localStorage.lang == availLang[0]) {
+		urlFetch = languageUrl[0];
 	}
-	if(localStorage.lang==availLang[1]){
-		urlFetch=languageUrl[1]
+	if (localStorage.lang == availLang[1]) {
+		urlFetch = languageUrl[1];
 	}
 
 	fetch(urlFetch)
-	.then(result=>{
-		return result.text()
+	.then((result) => {
+		return result.text();
 	})
-	.then(result=>{
-		return JSON.parse(result)
+	.then((result) => {
+		return JSON.parse(result);
 	})
-	.then((jsonResult:JSON)=>{
+	.then((jsonResult: JSON) => {
+		let elements: HTMLSpanElement[] = Array.from(
+			document.querySelectorAll("[data-text]")
+		);
 
-		let elements:HTMLSpanElement[]=Array.from(document.querySelectorAll("[data-text]"));
+		elements.forEach((elm: HTMLSpanElement) => {
+			
+			elm.innerHTML = jsonResult[elm.dataset.text];
+		});
 
-		elements.forEach((elm:HTMLSpanElement)=>{
-			elm.innerHTML=jsonResult[elm.dataset.text];
+		anime({
+			targets:"table tr",
+			rotateX:["-90deg","0deg"],
+			duration: 3000
 		})
-
-	})
-
+	});
 }
 
-
-
-
-
-
-
-function shareEvent(){
-	let titleElm:HTMLElement=<HTMLElement>document.head.querySelector("title")
-	if(navigator.userAgentData.mobile){
-		window.navigator.share({
-			url: window.location.href,
-			text: titleElm.innerText,
-			title: titleElm.innerText,
-		})
-		.catch(
-			(e) => {
-				if(localStorage.lang==availLang[0]){
-					alertify.error(alerts.shareerror[0])
+function shareEvent() {
+	let titleElm: HTMLElement = <HTMLElement>document.head.querySelector("title");
+	if (navigator.userAgentData.mobile) {
+		window.navigator
+			.share({
+				url: window.location.href,
+				text: titleElm.innerText,
+				title: titleElm.innerText,
+			})
+			.catch((e) => {
+				if (localStorage.lang == availLang[0]) {
+					alertify.error(alerts.shareerror[0]);
 				}
-				if(localStorage.lang==availLang[1]){
-					alertify.error(alerts.shareerror[1])
+				if (localStorage.lang == availLang[1]) {
+					alertify.error(alerts.shareerror[1]);
 				}
-			}
-			)
-		}else{
-			let copyText:string=`${titleElm.innerText} *** ${window.location.href}`
-			window.navigator.clipboard.writeText(copyText)
+			});
+	} else {
+		let copyText: string = `${titleElm.innerText} *** ${window.location.href}`;
+		window.navigator.clipboard
+			.writeText(copyText)
 			.then(() => {
-				if(localStorage.lang==availLang[0]){
-					alertify.success(alerts.copysuccess[0])
+				if (localStorage.lang == availLang[0]) {
+					alertify.success(alerts.copysuccess[0]);
 				}
-				if(localStorage.lang==availLang[1]){
-					alertify.success(alerts.copysuccess[1])
-				}
-			})
-			.catch(e=>{
-				if(localStorage.lang==availLang[0]){
-					alertify.error(alerts.copyerror[0])
-				}
-				if(localStorage.lang==availLang[1]){
-					alertify.error(alerts.copyerror[1])
+				if (localStorage.lang == availLang[1]) {
+					alertify.success(alerts.copysuccess[1]);
 				}
 			})
+			.catch((e) => {
+				if (localStorage.lang == availLang[0]) {
+					alertify.error(alerts.copyerror[0]);
+				}
+				if (localStorage.lang == availLang[1]) {
+					alertify.error(alerts.copyerror[1]);
+				}
+			});
 	}
 }
 
-
-if(localStorage.bigfont!="true" && localStorage.bigfont!="false"){
-	localStorage.bigfont="false";
+if (localStorage.bigfont != "true" && localStorage.bigfont != "false") {
+	localStorage.bigfont = "false";
 }
-if(localStorage.bigfont=="true"){
-	applyBigFont()
+if (localStorage.bigfont == "true") {
+	applyBigFont();
 }
-if(localStorage.bigfont=="false"){
-	removeBigFont()
+if (localStorage.bigfont == "false") {
+	removeBigFont();
 }
 
-
-function switchBigFont(){
-	if(localStorage.bigfont=="false"){
-		localStorage.bigfont="true"
-		applyBigFont()
-	}else{
-		if(localStorage.bigfont=="true"){
-			localStorage.bigfont="false"
-			removeBigFont()
+function switchBigFont() {
+	if (localStorage.bigfont == "false") {
+		localStorage.bigfont = "true";
+		applyBigFont();
+	} else {
+		if (localStorage.bigfont == "true") {
+			localStorage.bigfont = "false";
+			removeBigFont();
 		}
 	}
-
 }
 
-
-function applyBigFont():void{
-	let arrayTodos:HTMLElement[]
-	arrayTodos=Array.from(document.querySelectorAll("*"));
-	arrayTodos.forEach(elm=>{
-		elm.dataset.initialfont=getComputedStyle(elm).fontSize
-	})
-	arrayTodos.forEach(elm=>{
-		elm.style.fontSize=`calc(${elm.dataset.initialfont} + 5px)`
-	})
-	documentButtons.bigFontSwitch.classList.add("switch-active")
+function applyBigFont(): void {
+	let arrayTodos: HTMLElement[];
+	arrayTodos = Array.from(document.querySelectorAll("*"));
+	arrayTodos.forEach((elm) => {
+		elm.dataset.initialfont = getComputedStyle(elm).fontSize;
+	});
+	arrayTodos.forEach((elm) => {
+		elm.style.fontSize = `calc(${elm.dataset.initialfont} + 5px)`;
+	});
 }
 
-function removeBigFont():void{
-	let arrayTodos:HTMLElement[]
-	arrayTodos=Array.from(document.querySelectorAll("*"));
-	arrayTodos.forEach((elm:any) => {
-		elm.style.fontSize=elm.dataset.initialfont
+function removeBigFont(): void {
+	let arrayTodos: HTMLElement[];
+	arrayTodos = Array.from(document.querySelectorAll("*"));
+	arrayTodos.forEach((elm: any) => {
+		elm.style.fontSize = elm.dataset.initialfont;
 		elm.removeAttribute("data-initialfont");
-	})
-	documentButtons.bigFontSwitch.classList.remove("switch-active")
+	});
+	documentButtons.bigFontSwitch.classList.remove("switch-active");
 }
 
-
-
-
-if(localStorage.contrast!="true" && localStorage.contrast!="false"){
-	localStorage.contrast="false";
+if (localStorage.contrast != "true" && localStorage.contrast != "false") {
+	localStorage.contrast = "false";
 }
-if(localStorage.contrast=="true"){
-	applyContrast()
+if (localStorage.contrast == "true") {
+	applyContrast();
 }
-if(localStorage.contrast=="false"){
-	removeContrast()
+if (localStorage.contrast == "false") {
+	removeContrast();
 }
 
-function contrastSwitch(){
-	if(localStorage.contrast=="false"){
-		localStorage.contrast="true"
-		applyContrast()
-	}else{
-		if(localStorage.contrast=="true"){
-			localStorage.contrast="false"
-			removeContrast()
-			location.reload()
+function contrastSwitch() {
+	if (localStorage.contrast == "false") {
+		localStorage.contrast = "true";
+		applyContrast();
+	} else {
+		if (localStorage.contrast == "true") {
+			localStorage.contrast = "false";
+			removeContrast();
+			location.reload();
 		}
 	}
 }
 
-function applyContrast(){
-
-	let arrayTodos:HTMLElement[]
-	arrayTodos=Array.from(document.querySelectorAll("td,p,[data-text]"));
-	arrayTodos.forEach(elm=>{
-		elm.style.backgroundColor="black"
-		elm.style.color="yellow"
-	})
-	documentButtons.highContrastSwitch.classList.add("switch-active")
-
+function applyContrast() {
+	let arrayTodos: HTMLElement[];
+	arrayTodos = Array.from(document.querySelectorAll("td,p,[data-text]"));
+	arrayTodos.forEach((elm) => {
+		elm.style.backgroundColor = "black";
+		elm.style.color = "yellow";
+	});
+	documentButtons.highContrastSwitch.classList.add("switch-active");
 }
 
-function removeContrast(){
-	let arrayTodos:HTMLElement[]
-	arrayTodos=Array.from(document.querySelectorAll("[data-text"));
-	arrayTodos.forEach(elm=>{
-		elm.style.backgroundColor="auto"
-		elm.style.color="auto"
-	})
+function removeContrast() {
+	let arrayTodos: HTMLElement[];
+	arrayTodos = Array.from(document.querySelectorAll("[data-text"));
+	arrayTodos.forEach((elm) => {
+		elm.style.backgroundColor = "auto";
+		elm.style.color = "auto";
+	});
 }
 
