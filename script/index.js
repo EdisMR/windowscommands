@@ -144,9 +144,9 @@ function innerText() {
             elm.innerHTML = jsonResult[elm.dataset.text];
         });
         anime({
-            targets: "table tr",
-            rotateX: ["-90deg", "0deg"],
-            duration: 3000
+            targets: ".table-container",
+            opacity: ["0", "1"],
+            duration: 10000
         });
     });
 }

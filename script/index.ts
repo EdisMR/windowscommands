@@ -139,6 +139,7 @@ function closeMenu() {
 /* ******************************* */
 
 /* Localstorage for the configured language and call to inner the text */
+
 if (!localStorage.lang) {
 	setLangAuto();
 	innerText();
@@ -213,9 +214,9 @@ function innerText() {
 		});
 
 		anime({
-			targets:"table tr",
-			rotateX:["-90deg","0deg"],
-			duration: 3000
+			targets:".table-container",
+			opacity:["0","1"],
+			duration: 10000
 		})
 	});
 }
@@ -362,3 +363,5 @@ contributeElements=Array.from(document.querySelectorAll(".contribute"))
 contributeElements.forEach(elm=>{
 	elm.setAttribute("href",contributeURL);
 })
+
+
