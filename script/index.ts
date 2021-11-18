@@ -317,7 +317,7 @@ function contrastSwitch() {
 	} else {
 		if (localStorage.contrast == "true") {
 			localStorage.contrast = "false";
-			location.reload();
+			removeContrast();
 		}
 	}
 }
@@ -326,13 +326,18 @@ function applyContrast() {
 	let arrayTodos: HTMLElement[];
 	arrayTodos = Array.from(document.querySelectorAll("td,p,[data-text]"));
 	arrayTodos.forEach((elm) => {
-		elm.style.backgroundColor = "#232323";
-		elm.style.color = "#d7d70f";
+		elm.classList.add("highContrast")
 	});
 	documentButtons.highContrastSwitch.classList.add("switch-active");
 }
 
 function removeContrast() {
+	let arrayTodos: HTMLElement[];
+	arrayTodos = Array.from(document.querySelectorAll("td,p,[data-text]"));
+	arrayTodos.forEach((elm) => {
+		elm.classList.remove("highContrast")
+	});
+	documentButtons.highContrastSwitch.classList.remove("switch-active");
 }
 
 

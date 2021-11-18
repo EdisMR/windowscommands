@@ -258,7 +258,7 @@ function contrastSwitch() {
     else {
         if (localStorage.contrast == "true") {
             localStorage.contrast = "false";
-            location.reload();
+            removeContrast();
         }
     }
 }
@@ -266,12 +266,17 @@ function applyContrast() {
     let arrayTodos;
     arrayTodos = Array.from(document.querySelectorAll("td,p,[data-text]"));
     arrayTodos.forEach((elm) => {
-        elm.style.backgroundColor = "#232323";
-        elm.style.color = "#d7d70f";
+        elm.classList.add("highContrast");
     });
     documentButtons.highContrastSwitch.classList.add("switch-active");
 }
 function removeContrast() {
+    let arrayTodos;
+    arrayTodos = Array.from(document.querySelectorAll("td,p,[data-text]"));
+    arrayTodos.forEach((elm) => {
+        elm.classList.remove("highContrast");
+    });
+    documentButtons.highContrastSwitch.classList.remove("switch-active");
 }
 function downloadDocument() {
     if (localStorage.lang == availLang[0]) {
