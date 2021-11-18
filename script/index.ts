@@ -1,3 +1,9 @@
+/* 
+	localStorage.lang
+	localStorage.bigfont
+	localStorage.contrast
+ */
+
 /* Contribute URL */
 const contributeURL:string="https://www.paypal.com/donate/?hosted_button_id=WSB5A7M64PD34";
 
@@ -9,23 +15,6 @@ const languageUrl: string[] = [
 	window.location.href + "lang/eng.json",
 	window.location.href + "lang/spa.json",
 ];
-/* 
-	localStorage.lang,
-	localStorage.bigfont,
-	localStorage.contrast
- */
-
-const alertsSpa: {
-	copyerrorspa: string;
-	copyerroreng: string;
-	copysuccessspa: string;
-	copysuccesseng: string;
-} = {
-	copyerrorspa: "",
-	copyerroreng: "",
-	copysuccessspa: "",
-	copysuccesseng: "",
-};
 
 const alerts = {
 	copyerror: {
@@ -77,50 +66,46 @@ documentButtons.closeMenu.addEventListener("click", closeMenu, false);
 documentButtons.downloadBtn.addEventListener("click",downloadDocument,false)
 documentButtons.shareBtn.addEventListener("click", shareEvent, false);
 documentButtons.bigFontSwitch.addEventListener("click", switchBigFont, false);
-documentButtons.highContrastSwitch.addEventListener(
-	"click",
-	contrastSwitch,
-	false
-);
-window.addEventListener(
-	"keyup",
+documentButtons.highContrastSwitch.addEventListener("click",contrastSwitch,false);
+
+/* To close the menu using the Scape key */
+window.addEventListener("keyup",
 	(e: KeyboardEvent) => {
 		if (e.key == "Escape") closeMenu();
-	},
-	false
+	},false
 );
 
-documentButtons.langEnglish.addEventListener(
-	"click",
+/* button to set the english language */
+documentButtons.langEnglish.addEventListener("click",
 	() => {
 		if (localStorage.lang != availLang[0]) {
 			setLang(availLang[0]);
 			settingActualLang()
 			innerText()
 		}
-	},
-	false
-	);
-	
-	documentButtons.langSpanish.addEventListener(
-		"click",
-		() => {
-			if (localStorage.lang != availLang[1]) {
-				setLang(availLang[1]);
-				settingActualLang()
-				innerText()
-		}
-	},
-	false
+	},false
+);
+
+/* button to set the spanish language */
+documentButtons.langSpanish.addEventListener("click",
+	() => {
+		if (localStorage.lang != availLang[1]) {
+			setLang(availLang[1]);
+			settingActualLang()
+			innerText()
+	}
+	},false
 );
 
 function openMenu() {
-	documentButtons.menuDisplay.style.display = "grid";
 	anime({
 		targets: "#menu-priorization",
 		duration: 500,
 		opacity: ["0", "1"],
 		easing: "easeInOutQuad",
+		begin:function(){
+			documentButtons.menuDisplay.style.display = "grid";
+		}
 	});
 }
 
@@ -141,7 +126,6 @@ function closeMenu() {
 /* ******************************* */
 
 /* Localstorage for the configured language and call to inner the text */
-
 if (!localStorage.lang) {
 	setLangAuto();
 	innerText();
@@ -151,7 +135,7 @@ if (!localStorage.lang) {
 	settingActualLang();
 }
 
-/* Call it to set the new language */
+/* set the new language with an input */
 function setLang(newlang: string): void {
 	localStorage.lang = newlang;
 	let temp = <HTMLHtmlElement>document.querySelector("html");
@@ -165,7 +149,7 @@ function setLang(newlang: string): void {
 	}
 }
 
-/* Call it to set the language automatically */
+/* Set the language automatically */
 /* If not english or spanish, set it to english */
 function setLangAuto() {
 	if (navigator.languages[0].includes(availLang[1])) {
@@ -179,6 +163,7 @@ function setLangAuto() {
 	}
 }
 
+/* Set the color in the radio buttons on Menu => Language */
 function settingActualLang() {
 	let elements:HTMLButtonElement[]
 	elements=Array.from(document.querySelectorAll(".lang-option"))
@@ -193,7 +178,7 @@ function settingActualLang() {
 	}
 }
 
-/* To call the translations and inner the document with the corresponding translation */
+/* call translations and inner the document with the corresponding translation */
 function innerText() {
 	let urlFetch: string = "";
 	if (localStorage.lang == availLang[0]) {
@@ -211,19 +196,21 @@ function innerText() {
 		return JSON.parse(result);
 	})
 	.then((jsonResult: JSON) => {
-		let elements: HTMLSpanElement[] = Array.from(
-			document.querySelectorAll("[data-text]")
-		);
-
-		elements.forEach((elm: HTMLSpanElement) => {
-			
-			elm.innerHTML = jsonResult[elm.dataset.text];
-		});
-
+		let elements: HTMLSpanElement[] = Array.from(document.querySelectorAll("[data-text]"));
+		let animateElements:HTMLElement[]=Array.from(document.querySelectorAll(".table-container,.language-options,.settings-options,.menu-share-options,.menu-title"))
 		anime({
-			targets:".table-container",
+			targets:animateElements,
 			opacity:["0","1"],
-			duration: 10000
+			delay:500,
+			duration: 3000,
+			begin:function(){
+				animateElements.forEach(elm=>{
+					elm.style.opacity="0";
+				})
+				elements.forEach((elm: HTMLSpanElement) => {
+					elm.innerHTML = jsonResult[elm.dataset.text];
+				});
+			}
 		})
 	});
 }

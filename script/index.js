@@ -5,12 +5,6 @@ const languageUrl = [
     window.location.href + "lang/eng.json",
     window.location.href + "lang/spa.json",
 ];
-const alertsSpa = {
-    copyerrorspa: "",
-    copyerroreng: "",
-    copysuccessspa: "",
-    copysuccesseng: "",
-};
 const alerts = {
     copyerror: {
         0: "Task failed",
@@ -67,12 +61,14 @@ documentButtons.langSpanish.addEventListener("click", () => {
     }
 }, false);
 function openMenu() {
-    documentButtons.menuDisplay.style.display = "grid";
     anime({
         targets: "#menu-priorization",
         duration: 500,
         opacity: ["0", "1"],
         easing: "easeInOutQuad",
+        begin: function () {
+            documentButtons.menuDisplay.style.display = "grid";
+        }
     });
 }
 function closeMenu() {
@@ -147,13 +143,20 @@ function innerText() {
     })
         .then((jsonResult) => {
         let elements = Array.from(document.querySelectorAll("[data-text]"));
-        elements.forEach((elm) => {
-            elm.innerHTML = jsonResult[elm.dataset.text];
-        });
+        let animateElements = Array.from(document.querySelectorAll(".table-container,.language-options,.settings-options,.menu-share-options,.menu-title"));
         anime({
-            targets: ".table-container",
+            targets: animateElements,
             opacity: ["0", "1"],
-            duration: 10000
+            delay: 500,
+            duration: 3000,
+            begin: function () {
+                animateElements.forEach(elm => {
+                    elm.style.opacity = "0";
+                });
+                elements.forEach((elm) => {
+                    elm.innerHTML = jsonResult[elm.dataset.text];
+                });
+            }
         });
     });
 }

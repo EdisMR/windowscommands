@@ -389,5 +389,9 @@ $menu-padding:30px;
 
 .contribute{
 	transition-duration: .2s;
-	animation: contributeColor 5s linear infinite;
+	animation: contributeColor 4s linear infinite;
+	padding:5px 10px;
+	border-width: 2px;
+	border-style: dashed;
+	margin-top: 10px;
 }
