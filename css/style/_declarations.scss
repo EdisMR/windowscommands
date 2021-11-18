@@ -62,13 +62,20 @@ header{
 	top: 16px;
     right: 65px;
 	button{
-		display: inline-block;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		background-color: skyblue;
-		padding-bottom: 22px;
-		padding-top: 10px;
-		font-size: 50px;
-		width: auto;
-		line-height: 10px;
+		border-radius: 50%;
+		width: 50px;
+		height: 50px;
+		margin: 0;
+		span{
+			margin: 0;
+			padding: 0;
+			font-size: 50px;
+			transform: translateY(-6px);
+		}
 		&:hover{
 			background-color: rgb(117, 208, 245);
 		}
@@ -365,17 +372,6 @@ $menu-padding:30px;
 	border:5px solid black;
 	border-radius: 50%;
 	background-color: var(--primary);
-}
-
-/* To solve a hidden title */
-@media (max-width:420px){
-	#openMenu{
-		font-size: 40px;
-		padding-bottom: 17px;
-		padding-top: 6px;
-		padding-left: 0px;
-		padding-right: 0px;
-	}
 }
 
 @keyframes contributeColor{
