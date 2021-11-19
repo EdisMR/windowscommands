@@ -100,7 +100,7 @@ documentButtons.langSpanish.addEventListener("click",
 function openMenu() {
 	anime({
 		targets: ".menu-container",
-		duration: 500,
+		duration: 1000,
 		keyframes:[
 			{opacity:0,translateY:-300,rotateX:"90deg"},
 			{opacity:1,translateY:0,rotateX:"0deg"},
@@ -115,7 +115,7 @@ function openMenu() {
 function closeMenu() {
 	anime({
 		targets: ".menu-container",
-		duration: 500,
+		duration: 1000,
 		keyframes:[
 			{opacity:1,translateY:0,rotateX:"0deg"},
 			{opacity:0,translateY:-300,rotateX:"90deg"},
