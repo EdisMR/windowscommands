@@ -62,9 +62,12 @@ documentButtons.langSpanish.addEventListener("click", () => {
 }, false);
 function openMenu() {
     anime({
-        targets: "#menu-priorization",
+        targets: ".menu-container",
         duration: 500,
-        opacity: ["0", "1"],
+        keyframes: [
+            { opacity: 0, translateY: -300, rotateX: "90deg" },
+            { opacity: 1, translateY: 0, rotateX: "0deg" },
+        ],
         easing: "easeInOutQuad",
         begin: function () {
             documentButtons.menuDisplay.style.display = "grid";
@@ -73,24 +76,23 @@ function openMenu() {
 }
 function closeMenu() {
     anime({
-        targets: "#menu-priorization",
+        targets: ".menu-container",
         duration: 500,
-        opacity: ["1", "0"],
+        keyframes: [
+            { opacity: 1, translateY: 0, rotateX: "0deg" },
+            { opacity: 0, translateY: -300, rotateX: "90deg" },
+        ],
         easing: "easeInOutQuad",
         complete: function () {
             documentButtons.menuDisplay.style.display = "none";
-        },
+        }
     });
 }
 if (!localStorage.lang) {
     setLangAuto();
-    innerText();
-    settingActualLang();
 }
-else {
-    innerText();
-    settingActualLang();
-}
+innerText();
+settingActualLang();
 function setLang(newlang) {
     localStorage.lang = newlang;
     let temp = document.querySelector("html");
@@ -143,18 +145,20 @@ function innerText() {
     })
         .then((jsonResult) => {
         let elements = Array.from(document.querySelectorAll("[data-text]"));
-        let animateElements = Array.from(document.querySelectorAll(".table-container,.language-options,.settings-options,.menu-share-options,.menu-title"));
+        let animateElements = Array.from(document.querySelectorAll(".table-container,.language-options,.settings-options,.menu-share-options,.menu-title-text,h1"));
+        elements.forEach((elm) => {
+            elm.innerHTML = jsonResult[elm.dataset.text];
+        });
         anime({
             targets: animateElements,
-            opacity: ["0", "1"],
-            delay: 500,
+            keyframes: [
+                { opacity: 0 },
+                { opacity: 1 },
+            ],
             duration: 3000,
             begin: function () {
                 animateElements.forEach(elm => {
                     elm.style.opacity = "0";
-                });
-                elements.forEach((elm) => {
-                    elm.innerHTML = jsonResult[elm.dataset.text];
                 });
             }
         });

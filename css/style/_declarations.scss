@@ -38,7 +38,6 @@ header{
 	display: flex;
 	align-items: center;
 	*{
-		transition-duration: .2s;
 	}
 	figure{
 		margin: 20px;
@@ -106,7 +105,6 @@ main{
 	break-inside: avoid-column;
 	margin-top: 20px;
 	margin-bottom: 20px;
-	opacity: 0;/* It's deleted on AnimeJS */
 	&:first-of-type{
 		margin-top: 0px;
 	}
@@ -125,7 +123,6 @@ table{
 			padding:5px;
 			padding-top: 10px;
 			*{
-				transition-duration: .2s;
 			}
 			&:first-of-type{
 				font-weight: 700;
@@ -156,7 +153,6 @@ footer{
 	p{
 		text-align: center;
 		margin: 5px;
-		transition-duration: .2s;
 		color: #eee;
 		&:active{
 			transform: scale3d(0.8, 0.8, 1.5);
@@ -196,11 +192,11 @@ $menu-padding:30px;
 	background-color: #414141;
 	color: #eee;
 	border: 1px solid blue;
+	opacity: 0;
 	.ms-Icon{
 		font-size: 20px;
 	}
 	*{
-		transition-duration: .2s;
 	}
 }
 
@@ -265,7 +261,6 @@ $menu-padding:30px;
 }
 
 .share-text{
-	transition-duration: .2s;
 	&:active{
 		transform: scale3d(0.8, 0.8, 1.5) !important;
 	}
@@ -296,7 +291,6 @@ $menu-padding:30px;
 
 .controls-switch{
 	cursor: pointer;
-	transition-duration: .2s;
 	figure{
 		img{
 			background-color: gray;
@@ -362,7 +356,6 @@ $menu-padding:30px;
 	border-radius: 50%;
 	background-color: grey;
 	cursor: pointer;
-	transition-duration: .2s;
 	&:active{
 		transform: scale3d(0.8, 0.8, 1.5);
 	}
@@ -384,7 +377,6 @@ $menu-padding:30px;
 }
 
 .contribute{
-	transition-duration: .2s;
 	padding:5px 10px;
 	border-width: 2px;
 	border-style: dashed;
@@ -399,4 +391,15 @@ $menu-padding:30px;
 .highContrast{
 	background-color: #232323;
 	color: #d7d70f;
+}
+
+[data-text]{
+	transition-duration: .2s;
+}
+
+
+/* ANIMEJS OPERATION */
+.menu-title-text,.table-container{
+	transition-duration: 0;
+	opacity: 0;/* It's deleted on AnimeJS */
 }
