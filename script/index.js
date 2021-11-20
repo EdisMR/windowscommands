@@ -120,11 +120,11 @@ function settingActualLang() {
     }
 }
 function innerText() {
+    let urlFetch = "";
     let animateElements = Array.from(document.querySelectorAll(".table-container,.language-options,.settings-options,.menu-share-options,.menu-title-text,h1"));
     animateElements.forEach(elm => {
         elm.style.opacity = "0";
     });
-    let urlFetch = "";
     if (localStorage.lang == availLang[0]) {
         urlFetch = languageUrl[0];
     }
