@@ -35,6 +35,7 @@ const documentButtons = {
     highContrastSwitch: (document.querySelector("#high-contrast-switch")),
     langEnglish: document.querySelector("#lang-eng-button"),
     langSpanish: document.querySelector("#lang-spa-button"),
+    menuContainer: document.querySelector(".menu-container")
 };
 documentButtons.openMenu.addEventListener("click", openMenu, false);
 documentButtons.closeMenu.addEventListener("click", closeMenu, false);
@@ -42,6 +43,18 @@ documentButtons.downloadBtn.addEventListener("click", downloadDocument, false);
 documentButtons.shareBtn.addEventListener("click", shareEvent, false);
 documentButtons.bigFontSwitch.addEventListener("click", switchBigFont, false);
 documentButtons.highContrastSwitch.addEventListener("click", contrastSwitch, false);
+let menuAnimation = gsap.from(documentButtons.menuContainer, {
+    paused: true,
+    y: -500,
+    opacity: 0,
+    rotationY: 90,
+    onStart: function () {
+        documentButtons.menuDisplay.style.display = "grid";
+    },
+    onReverseComplete: function () {
+        documentButtons.menuDisplay.style.display = "none";
+    }
+});
 window.addEventListener("keyup", (e) => {
     if (e.key == "Escape")
         closeMenu();
@@ -61,32 +74,10 @@ documentButtons.langSpanish.addEventListener("click", () => {
     }
 }, false);
 function openMenu() {
-    anime({
-        targets: ".menu-container",
-        duration: 1000,
-        keyframes: [
-            { opacity: 0, translateY: -300, rotateX: "90deg" },
-            { opacity: 1, translateY: 0, rotateX: "0deg" },
-        ],
-        easing: "easeInOutQuad",
-        begin: function () {
-            documentButtons.menuDisplay.style.display = "grid";
-        }
-    });
+    menuAnimation.play();
 }
 function closeMenu() {
-    anime({
-        targets: ".menu-container",
-        duration: 1000,
-        keyframes: [
-            { opacity: 1, translateY: 0, rotateX: "0deg" },
-            { opacity: 0, translateY: -300, rotateX: "90deg" },
-        ],
-        easing: "easeInOutQuad",
-        complete: function () {
-            documentButtons.menuDisplay.style.display = "none";
-        }
-    });
+    menuAnimation.reverse();
 }
 if (!localStorage.lang) {
     setLangAuto();
@@ -129,6 +120,10 @@ function settingActualLang() {
     }
 }
 function innerText() {
+    let animateElements = Array.from(document.querySelectorAll(".table-container,.language-options,.settings-options,.menu-share-options,.menu-title-text,h1"));
+    animateElements.forEach(elm => {
+        elm.style.opacity = "0";
+    });
     let urlFetch = "";
     if (localStorage.lang == availLang[0]) {
         urlFetch = languageUrl[0];
@@ -145,22 +140,13 @@ function innerText() {
     })
         .then((jsonResult) => {
         let elements = Array.from(document.querySelectorAll("[data-text]"));
-        let animateElements = Array.from(document.querySelectorAll(".table-container,.language-options,.settings-options,.menu-share-options,.menu-title-text,h1"));
         elements.forEach((elm) => {
             elm.innerHTML = jsonResult[elm.dataset.text];
         });
-        anime({
-            targets: animateElements,
-            keyframes: [
-                { opacity: 0 },
-                { opacity: 1 },
-            ],
-            duration: 3000,
-            begin: function () {
-                animateElements.forEach(elm => {
-                    elm.style.opacity = "0";
-                });
-            }
+        gsap.to(animateElements, {
+            opacity: 1,
+            duration: .5,
+            delay: .5
         });
     });
 }

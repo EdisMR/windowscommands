@@ -192,7 +192,6 @@ $menu-padding:30px;
 	background-color: #414141;
 	color: #eee;
 	border: 1px solid blue;
-	opacity: 0;
 	position: fixed;
 	top: 50px;
 	.ms-Icon{
@@ -397,11 +396,4 @@ $menu-padding:30px;
 
 [data-text]{
 	transition-duration: .2s;
-}
-
-
-/* ANIMEJS OPERATION */
-.menu-title-text,.table-container{
-	transition-duration: 0;
-	opacity: 0;/* It's deleted on AnimeJS */
 }

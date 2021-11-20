@@ -48,6 +48,7 @@ const documentButtons: {
 	highContrastSwitch: HTMLElement;
 	langEnglish: HTMLElement;
 	langSpanish: HTMLElement;
+	menuContainer:HTMLElement;
 } = {
 	openMenu: <HTMLButtonElement>document.querySelector("#openMenu"),
 	menuDisplay: <HTMLElement>document.querySelector("#menu-priorization"),
@@ -59,6 +60,7 @@ const documentButtons: {
 	highContrastSwitch: <HTMLElement>(document.querySelector("#high-contrast-switch")),
 	langEnglish: <HTMLElement>document.querySelector("#lang-eng-button"),
 	langSpanish: <HTMLElement>document.querySelector("#lang-spa-button"),
+	menuContainer:<HTMLElement>document.querySelector(".menu-container")
 };
 
 documentButtons.openMenu.addEventListener("click", openMenu, false);
@@ -67,6 +69,21 @@ documentButtons.downloadBtn.addEventListener("click",downloadDocument,false)
 documentButtons.shareBtn.addEventListener("click", shareEvent, false);
 documentButtons.bigFontSwitch.addEventListener("click", switchBigFont, false);
 documentButtons.highContrastSwitch.addEventListener("click",contrastSwitch,false);
+
+/* Menu ANimation */
+let menuAnimation=gsap.from(documentButtons.menuContainer{
+	paused:true,
+	y:-500,
+	opacity:0,
+	rotationY:90,
+	onStart:function(){
+		documentButtons.menuDisplay.style.display = "grid";
+	}
+	onReverseComplete:function(){
+		documentButtons.menuDisplay.style.display = "none";
+	}
+});
+
 
 /* To close the menu using the Scape key */
 window.addEventListener("keyup",
@@ -97,34 +114,14 @@ documentButtons.langSpanish.addEventListener("click",
 	},false
 );
 
+
+
 function openMenu() {
-	anime({
-		targets: ".menu-container",
-		duration: 1000,
-		keyframes:[
-			{opacity:0,translateY:-300,rotateX:"90deg"},
-			{opacity:1,translateY:0,rotateX:"0deg"},
-		],
-		easing: "easeInOutQuad",
-		begin:function(){
-			documentButtons.menuDisplay.style.display = "grid";
-		}
-	});
+	menuAnimation.play()
 }
 
 function closeMenu() {
-	anime({
-		targets: ".menu-container",
-		duration: 1000,
-		keyframes:[
-			{opacity:1,translateY:0,rotateX:"0deg"},
-			{opacity:0,translateY:-300,rotateX:"90deg"},
-		],
-		easing: "easeInOutQuad",
-		complete:function(){
-			documentButtons.menuDisplay.style.display = "none";
-		}
-	});
+	menuAnimation.reverse()
 }
 
 /* ******************************* */
@@ -183,7 +180,14 @@ function settingActualLang() {
 
 /* call translations and inner the document with the corresponding translation */
 function innerText() {
+	let animateElements:HTMLElement[]=Array.from(document.querySelectorAll(".table-container,.language-options,.settings-options,.menu-share-options,.menu-title-text,h1"))
+
+	animateElements.forEach(elm=>{
+		elm.style.opacity="0"
+	})
+
 	let urlFetch: string = "";
+	
 	if (localStorage.lang == availLang[0]) {
 		urlFetch = languageUrl[0];
 	}
@@ -200,25 +204,14 @@ function innerText() {
 	})
 	.then((jsonResult: JSON) => {
 		let elements: HTMLSpanElement[] = Array.from(document.querySelectorAll("[data-text]"));
-		let animateElements:HTMLElement[]=Array.from(document.querySelectorAll(".table-container,.language-options,.settings-options,.menu-share-options,.menu-title-text,h1"))
 
 		elements.forEach((elm: HTMLSpanElement) => {
 			elm.innerHTML = jsonResult[elm.dataset.text];
 		});
-		
-		anime({
-			targets:animateElements,
-			keyframes:[
-				{opacity:0},
-				{opacity:1},
-			],
-			duration: 3000,
-			begin:function(){
-				animateElements.forEach(elm=>{
-					elm.style.opacity="0";
-				})
-				
-			}
+		gsap.to(animateElements,{
+			opacity:1,
+			duration:.5,
+			delay:.5
 		})
 	});
 }
