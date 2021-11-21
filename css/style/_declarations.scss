@@ -17,6 +17,15 @@ a{
 	}
 }
 
+header,footer,.menu-title{
+	background-color: var(--primary);
+	background-image: url("/assets/banner3.webp");
+	background-repeat: repeat-x;
+	background-size: 100vw;
+	background-position: 2px -377px;
+	background-blend-mode: soft-light;
+}
+
 /* ****** */
 /* Header */
 /* ****** */
@@ -30,7 +39,6 @@ header{
 	left: 0;
 	width: 100vw;
 	height: 80px;
-	background-color: var(--primary);
 	z-index: 10;
 }
 
