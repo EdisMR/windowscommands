@@ -358,3 +358,13 @@ contributeElements.forEach(elm=>{
 })
 
 
+gsap.timeline({
+	delay:10,
+	duration:2
+})
+.to(".header-menu",{
+	rotationY:80,
+})
+.to(".header-menu",{
+	rotationY:0,
+})

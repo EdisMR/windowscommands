@@ -281,3 +281,13 @@ contributeElements = Array.from(document.querySelectorAll(".contribute"));
 contributeElements.forEach(elm => {
     elm.setAttribute("href", contributeURL);
 });
+gsap.timeline({
+    delay: 10,
+    duration: 2
+})
+    .to(".header-menu", {
+    rotationY: 80,
+})
+    .to(".header-menu", {
+    rotationY: 0,
+});
