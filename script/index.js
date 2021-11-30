@@ -49,10 +49,10 @@ let menuAnimation = gsap.from(documentButtons.menuContainer, {
     opacity: 0,
     rotationY: 90,
     onStart: function () {
-        documentButtons.menuDisplay.style.display = "grid";
+        documentButtons.menuDisplay.style.visibility = "visible";
     },
     onReverseComplete: function () {
-        documentButtons.menuDisplay.style.display = "none";
+        documentButtons.menuDisplay.style.visibility = "hidden";
     }
 });
 window.addEventListener("keyup", (e) => {

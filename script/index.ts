@@ -71,16 +71,16 @@ documentButtons.bigFontSwitch.addEventListener("click", switchBigFont, false);
 documentButtons.highContrastSwitch.addEventListener("click",contrastSwitch,false);
 
 /* Menu ANimation */
-let menuAnimation=gsap.from(documentButtons.menuContainer{
+let menuAnimation=gsap.from(documentButtons.menuContainer,{
 	paused:true,
 	y:-500,
 	opacity:0,
 	rotationY:90,
 	onStart:function(){
-		documentButtons.menuDisplay.style.display = "grid";
-	}
+		documentButtons.menuDisplay.style.visibility = "visible";
+	},
 	onReverseComplete:function(){
-		documentButtons.menuDisplay.style.display = "none";
+		documentButtons.menuDisplay.style.visibility = "hidden";
 	}
 });
 

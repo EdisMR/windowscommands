@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "watch": true,
-    "target": "esnext",
-    "module": "commonjs",
+    "target": "es2015",
+    "module": "es2015",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
