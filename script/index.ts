@@ -375,3 +375,10 @@ let bgImage:HTMLElement[]=Array.from(document.querySelectorAll("header,footer,.m
 bgImage.forEach(elm=>{
 	elm.style.backgroundImage=`url("${window.location.origin}${window.location.pathname}assets/banner3.webp")`
 })
+
+
+/* Prevent contextual menu from images */
+let imagess=Array.from(document.images)
+imagess.forEach(elm => {
+	elm.addEventListener("contextmenu",(e)=>{e.preventDefault()})
+});
