@@ -23,7 +23,7 @@ header,
 footer,
 .menu-title {
 	background-color: var(--primary);
-	background-image: url("https://xitusdev.github.io/windowscommands/assets/banner3.webp");
+	/* background-image: url("https://xitusdev.github.io/windowscommands/assets/banner3.webp"); */
 	background-repeat: repeat-x;
 	background-size: 100%;
 	background-position: center;
@@ -105,12 +105,18 @@ header {
 	}
 }
 
+.site-title{
+	margin-top: 100px;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 50px;
+	text-align: center;
+}
 
 /* **** */
 /* Main */
 /* **** */
 main {
-	margin-top: 100px;
 	column-count: 2;
 	column-gap: 20px;
 	padding: 50px;

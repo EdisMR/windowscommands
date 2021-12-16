@@ -358,6 +358,7 @@ contributeElements.forEach(elm=>{
 })
 
 
+/* Animate menu button */
 gsap.timeline({
 	delay:10,
 	duration:2
@@ -367,4 +368,10 @@ gsap.timeline({
 })
 .to(".header-menu",{
 	rotationY:0,
+})
+
+/* Set background image to the header */
+let bgImage:HTMLElement[]=Array.from(document.querySelectorAll("header,footer,.menu-title "))
+bgImage.forEach(elm=>{
+	elm.style.backgroundImage=`url("${window.location.origin}/assets/banner3.webp")`
 })
