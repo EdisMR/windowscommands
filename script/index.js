@@ -293,7 +293,7 @@ gsap.timeline({
 });
 let bgImage = Array.from(document.querySelectorAll("header,footer,.menu-title "));
 bgImage.forEach(elm => {
-    elm.style.backgroundImage = `url("${window.location.origin}${window.location.pathname}assets/banner3.webp")`;
+    elm.style.backgroundImage = `url("${window.location.origin}${window.location.pathname}assets/banner_verano.webp")`;
 });
 let imagess = Array.from(document.images);
 imagess.forEach(elm => {
