@@ -2,8 +2,8 @@
 const contributeURL = "https://www.paypal.com/donate/?hosted_button_id=WSB5A7M64PD34";
 const availLang = ["eng", "es"];
 const languageUrl = [
-    window.location.href + "lang/eng.json",
-    window.location.href + "lang/spa.json",
+    `${window.location.origin}/lang/eng.json`,
+    `${window.location.origin}/lang/spa.json`,
 ];
 const alerts = {
     copyerror: {
