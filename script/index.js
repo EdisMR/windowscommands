@@ -1,4 +1,6 @@
 "use strict";
+
+/* Variables */
 const contributeURL = "https://www.paypal.com/donate/?hosted_button_id=WSB5A7M64PD34";
 const availLang = ["eng", "es"];
 const languageUrl = [
@@ -23,7 +25,11 @@ const alerts = {
         1: "",
     },
 };
+
+/* alertify settings */
 alertify.set("notifier", "position", "top-center");
+
+/* Buttons to set listeners */
 const documentButtons = {
     openMenu: document.querySelector("#openMenu"),
     menuDisplay: document.querySelector("#menu-priorization"),
@@ -43,6 +49,8 @@ documentButtons.downloadBtn.addEventListener("click", downloadDocument, false);
 documentButtons.shareBtn.addEventListener("click", shareEvent, false);
 documentButtons.bigFontSwitch.addEventListener("click", switchBigFont, false);
 documentButtons.highContrastSwitch.addEventListener("click", contrastSwitch, false);
+
+/* Menu container appear animation */
 let menuAnimation = gsap.from(documentButtons.menuContainer, {
     paused: true,
     y: -500,
@@ -55,10 +63,14 @@ let menuAnimation = gsap.from(documentButtons.menuContainer, {
         documentButtons.menuDisplay.style.visibility = "hidden";
     }
 });
+
+/* if Escape key, close menu */
 window.addEventListener("keyup", (e) => {
     if (e.key == "Escape")
         closeMenu();
 }, false);
+
+/* language change listeners */
 documentButtons.langEnglish.addEventListener("click", () => {
     if (localStorage.lang != availLang[0]) {
         setLang(availLang[0]);
@@ -73,17 +85,23 @@ documentButtons.langSpanish.addEventListener("click", () => {
         innerText();
     }
 }, false);
+
+/* Open and close menu */
 function openMenu() {
     menuAnimation.play();
 }
+
 function closeMenu() {
     menuAnimation.reverse();
 }
+
+
 if (!localStorage.lang) {
     setLangAuto();
 }
 innerText();
 settingActualLang();
+
 function setLang(newlang) {
     localStorage.lang = newlang;
     let temp = document.querySelector("html");
@@ -94,18 +112,19 @@ function setLang(newlang) {
         temp.setAttribute("lang", "es");
     }
 }
+
 function setLangAuto() {
     if (navigator.languages[0].includes(availLang[1])) {
         setLang(availLang[1]);
         alertify.message("Puedes cambiarlo en configuraciones");
         alertify.message("Idioma configurado automaticamente");
-    }
-    else {
+    } else {
         setLang(availLang[0]);
         alertify.message("You can change it on Settings");
         alertify.message("Language set automatically");
     }
 }
+
 function settingActualLang() {
     let elements;
     elements = Array.from(document.querySelectorAll(".lang-option"));
@@ -119,6 +138,10 @@ function settingActualLang() {
         documentButtons.langSpanish.classList.add("lang-option-active");
     }
 }
+
+
+
+/* Inner html elements with JSON data */
 function innerText() {
     let urlFetch = "";
     let animateElements = Array.from(document.querySelectorAll(".table-container,.language-options,.settings-options,.menu-share-options,.menu-title-text,h1"));
@@ -133,33 +156,44 @@ function innerText() {
     }
     fetch(urlFetch)
         .then((result) => {
-        return result.text();
-    })
+            return result.text();
+        })
         .then((result) => {
-        return JSON.parse(result);
-    })
+            return JSON.parse(result);
+        })
         .then((jsonResult) => {
-        let elements = Array.from(document.querySelectorAll("[data-text]"));
-        elements.forEach((elm) => {
-            elm.innerHTML = jsonResult[elm.dataset.text];
+            let elements = Array.from(document.querySelectorAll("[data-text]"));
+            elements.forEach((elm) => {
+                elm.innerHTML = jsonResult[elm.dataset.text];
+            });
+            gsap.to(animateElements, {
+                opacity: 1,
+                duration: .5,
+                delay: .5
+            });
         });
-        gsap.to(animateElements, {
-            opacity: 1,
-            duration: .5,
-            delay: .5
-        });
-    });
 }
+
+
+
+/* Share website funcionality */
 function shareEvent() {
     let titleElm = document.head.querySelector("title");
     if (navigator.userAgentData.mobile) {
-        window.navigator
-            .share({
+        shareWithNavigatorShare()
+    } else {
+        shareCopyText()
+    }
+}
+
+function shareWithNavigatorShare() {
+    window.navigator
+        .share({
             url: window.location.href,
             text: titleElm.innerText,
             title: titleElm.innerText,
         })
-            .catch((e) => {
+        .catch((e) => {
             if (localStorage.lang == availLang[0]) {
                 alertify.error(alerts.shareerror[0]);
             }
@@ -167,12 +201,14 @@ function shareEvent() {
                 alertify.error(alerts.shareerror[1]);
             }
         });
-    }
-    else {
-        let copyText = `${titleElm.innerText} *** ${window.location.href}`;
-        window.navigator.clipboard
-            .writeText(copyText)
-            .then(() => {
+}
+
+
+function shareCopyText() {
+    let copyText = `${titleElm.innerText} *** ${window.location.href}`;
+    window.navigator.clipboard
+        .writeText(copyText)
+        .then(() => {
             if (localStorage.lang == availLang[0]) {
                 alertify.success(alerts.copysuccess[0]);
             }
@@ -180,7 +216,7 @@ function shareEvent() {
                 alertify.success(alerts.copysuccess[1]);
             }
         })
-            .catch((e) => {
+        .catch((e) => {
             if (localStorage.lang == availLang[0]) {
                 alertify.error(alerts.copyerror[0]);
             }
@@ -188,8 +224,11 @@ function shareEvent() {
                 alertify.error(alerts.copyerror[1]);
             }
         });
-    }
 }
+
+
+
+
 if (localStorage.bigfont != "true" && localStorage.bigfont != "false") {
     localStorage.bigfont = "false";
 }
@@ -199,18 +238,19 @@ if (localStorage.bigfont == "true") {
 if (localStorage.bigfont == "false") {
     removeBigFont();
 }
+
 function switchBigFont() {
     if (localStorage.bigfont == "false") {
         localStorage.bigfont = "true";
         applyBigFont();
-    }
-    else {
+    } else {
         if (localStorage.bigfont == "true") {
             localStorage.bigfont = "false";
             removeBigFont();
         }
     }
 }
+
 function applyBigFont() {
     documentButtons.bigFontSwitch.classList.add("switch-active");
     let arrayTodos;
@@ -222,6 +262,7 @@ function applyBigFont() {
         elm.style.fontSize = `calc(${elm.dataset.initialfont} + 5px)`;
     });
 }
+
 function removeBigFont() {
     let arrayTodos;
     arrayTodos = Array.from(document.querySelectorAll("*"));
@@ -240,18 +281,19 @@ if (localStorage.contrast == "true") {
 if (localStorage.contrast == "false") {
     removeContrast();
 }
+
 function contrastSwitch() {
     if (localStorage.contrast == "false") {
         localStorage.contrast = "true";
         applyContrast();
-    }
-    else {
+    } else {
         if (localStorage.contrast == "true") {
             localStorage.contrast = "false";
             removeContrast();
         }
     }
 }
+
 function applyContrast() {
     let arrayTodos;
     arrayTodos = Array.from(document.querySelectorAll("td,p,[data-text]"));
@@ -260,6 +302,7 @@ function applyContrast() {
     });
     documentButtons.highContrastSwitch.classList.add("switch-active");
 }
+
 function removeContrast() {
     let arrayTodos;
     arrayTodos = Array.from(document.querySelectorAll("td,p,[data-text]"));
@@ -268,6 +311,7 @@ function removeContrast() {
     });
     documentButtons.highContrastSwitch.classList.remove("switch-active");
 }
+
 function downloadDocument() {
     if (localStorage.lang == availLang[0]) {
         alertify.message("The download is starting ...");
@@ -282,16 +326,18 @@ contributeElements.forEach(elm => {
     elm.setAttribute("href", contributeURL);
 });
 gsap.timeline({
-    delay: 10,
-    duration: 2
-})
+        delay: 10,
+        duration: 2
+    })
     .to(".header-menu", {
-    rotationY: 80,
-})
+        rotationY: 80,
+    })
     .to(".header-menu", {
-    rotationY: 0,
-});
+        rotationY: 0,
+    });
 let imagess = Array.from(document.images);
 imagess.forEach(elm => {
-    elm.addEventListener("contextmenu", (e) => { e.preventDefault(); });
+    elm.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+    });
 });
