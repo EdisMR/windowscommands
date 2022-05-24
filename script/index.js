@@ -50,6 +50,7 @@ documentButtons.shareBtn.addEventListener("click", shareEvent, false);
 documentButtons.bigFontSwitch.addEventListener("click", switchBigFont, false);
 documentButtons.highContrastSwitch.addEventListener("click", contrastSwitch, false);
 
+
 /* Menu container appear animation */
 let menuAnimation = gsap.from(documentButtons.menuContainer, {
     paused: true,
@@ -64,11 +65,13 @@ let menuAnimation = gsap.from(documentButtons.menuContainer, {
     }
 });
 
+
 /* if Escape key, close menu */
 window.addEventListener("keyup", (e) => {
     if (e.key == "Escape")
         closeMenu();
 }, false);
+
 
 /* language change listeners */
 documentButtons.langEnglish.addEventListener("click", () => {
@@ -86,6 +89,8 @@ documentButtons.langSpanish.addEventListener("click", () => {
     }
 }, false);
 
+
+
 /* Open and close menu */
 function openMenu() {
     menuAnimation.play();
@@ -102,6 +107,8 @@ if (!localStorage.lang) {
 innerText();
 settingActualLang();
 
+
+/* call this function to set the lang auto or defined lang */
 function setLang(newlang) {
     localStorage.lang = newlang;
     let temp = document.querySelector("html");
@@ -113,6 +120,8 @@ function setLang(newlang) {
     }
 }
 
+
+/* call this function to set the lang automatically */
 function setLangAuto() {
     if (navigator.languages[0].includes(availLang[1])) {
         setLang(availLang[1]);
@@ -125,6 +134,8 @@ function setLangAuto() {
     }
 }
 
+
+/* Set class in the element to display current lang */
 function settingActualLang() {
     let elements;
     elements = Array.from(document.querySelectorAll(".lang-option"));
@@ -203,7 +214,6 @@ function shareWithNavigatorShare() {
         });
 }
 
-
 function shareCopyText() {
     let copyText = `${titleElm.innerText} *** ${window.location.href}`;
     window.navigator.clipboard
@@ -227,11 +237,9 @@ function shareCopyText() {
 }
 
 
+/* if localStorage.bigfont is not set, is false */
+localStorage.bigfont==null??false;
 
-
-if (localStorage.bigfont != "true" && localStorage.bigfont != "false") {
-    localStorage.bigfont = "false";
-}
 if (localStorage.bigfont == "true") {
     applyBigFont();
 }
@@ -320,11 +328,17 @@ function downloadDocument() {
         alertify.message("La descarga está iniciando ...");
     }
 }
+
+
+/* To set contribute URL in contribute html elements */
 let contributeElements;
 contributeElements = Array.from(document.querySelectorAll(".contribute"));
 contributeElements.forEach(elm => {
     elm.setAttribute("href", contributeURL);
 });
+
+
+/* Animation to button menu */
 gsap.timeline({
         delay: 10,
         duration: 2
@@ -335,9 +349,10 @@ gsap.timeline({
     .to(".header-menu", {
         rotationY: 0,
     });
+
+/* prevent image context menu */
 let imagess = Array.from(document.images);
 imagess.forEach(elm => {
-    elm.addEventListener("contextmenu", (e) => {
-        e.preventDefault();
-    });
+    elm.setAttribute("oncontextmenu", "return false;");
+    elm.setAttribute("draggable", "false");
 });
