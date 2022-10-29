@@ -237,8 +237,9 @@ function shareCopyText() {
 }
 
 
-/* if localStorage.bigfont is not set, is false */
-localStorage.bigfont==null??false;
+if(!localStorage.bigfont){
+    localStorage.bigfont = "false";
+}
 
 if (localStorage.bigfont == "true") {
     applyBigFont();
