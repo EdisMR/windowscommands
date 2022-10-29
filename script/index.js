@@ -189,20 +189,23 @@ function innerText() {
 
 /* Share website funcionality */
 function shareEvent() {
-    let titleElm = document.head.querySelector("title");
-    if (navigator.userAgentData.mobile) {
-        shareWithNavigatorShare()
+    /* Title from page */
+    let titleElm = document.querySelector("title");
+    if (window.navigator) {
+        shareWithNavigatorShare(titleElm)
     } else {
-        shareCopyText()
+        shareCopyText(titleElm)
     }
 }
 
-function shareWithNavigatorShare() {
+function shareWithNavigatorShare(titleElm) {
     window.navigator
         .share({
             url: window.location.href,
             text: titleElm.innerText,
             title: titleElm.innerText,
+        })
+        .then(() => {
         })
         .catch((e) => {
             if (localStorage.lang == availLang[0]) {
@@ -214,7 +217,7 @@ function shareWithNavigatorShare() {
         });
 }
 
-function shareCopyText() {
+function shareCopyText(titleElm) {
     let copyText = `${titleElm.innerText} *** ${window.location.href}`;
     window.navigator.clipboard
         .writeText(copyText)
